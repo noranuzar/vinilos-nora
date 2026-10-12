@@ -1,0 +1,803 @@
+{
+  "config": {
+    "nombreTienda": "Vinilos Nora",
+    "lema": "Regalos personalizados con vinilo, hechos a mano en Madrid",
+    "whatsapp": "34697154442",
+    "diasMinimosEntrega": 5,
+    "moneda": "EUR",
+    "entrega": [
+      {
+        "id": "recogida",
+        "nombre": "Recogida en Madrid",
+        "precio": 0,
+        "nota": "Te indico punto y horario por WhatsApp."
+      },
+      {
+        "id": "correos",
+        "nombre": "Envío por Correos",
+        "precio": null,
+        "nota": "Se cobra aparte según la tarifa oficial de Correos para el peso y destino del paquete."
+      }
+    ],
+    "pago": [
+      "Bizum"
+    ],
+    "avisoDerechos": "No personalizamos logos de marcas ni personajes con derechos de autor.",
+    "avisoImagenes": "Imagen orientativa. El producto real puede variar ligeramente.",
+    "posicionesAdorno": [
+      {
+        "id": "arriba",
+        "nombre": "Arriba"
+      },
+      {
+        "id": "izquierda",
+        "nombre": "Izquierda"
+      },
+      {
+        "id": "derecha",
+        "nombre": "Derecha"
+      }
+    ],
+    "altoLetraMinimoCm": {
+      "adhesivo": 0.5,
+      "textil": 0.6
+    },
+    "avisoPrueba": "Antes de producir hago una prueba de corte. Si algún texto es demasiado pequeño para cortarse bien, te escribo para ajustarlo antes de empezar."
+  },
+  "ocasiones": [
+    {
+      "id": "cumpleanos",
+      "nombre": "Cumpleaños",
+      "icono": "cake",
+      "orden": 1
+    },
+    {
+      "id": "bodas",
+      "nombre": "Bodas",
+      "icono": "gem",
+      "orden": 2
+    },
+    {
+      "id": "bautizos-comuniones",
+      "nombre": "Bautizos y comuniones",
+      "icono": "baby",
+      "orden": 3
+    },
+    {
+      "id": "dia-madre-padre",
+      "nombre": "Día de la Madre y del Padre",
+      "icono": "flower",
+      "orden": 4
+    },
+    {
+      "id": "navidad",
+      "nombre": "Navidad",
+      "icono": "tree",
+      "orden": 5
+    },
+    {
+      "id": "profesores",
+      "nombre": "Profesores",
+      "icono": "graduation",
+      "orden": 6
+    },
+    {
+      "id": "despedidas",
+      "nombre": "Despedidas",
+      "icono": "party",
+      "orden": 7
+    },
+    {
+      "id": "empresas",
+      "nombre": "Empresas",
+      "icono": "briefcase",
+      "orden": 8
+    }
+  ],
+  "tipos": [
+    {
+      "id": "adhesivo",
+      "nombre": "Vinilo adhesivo",
+      "descripcion": "Para tazas, vasos, tarros y superficies lisas.",
+      "icono": "sticker"
+    },
+    {
+      "id": "textil",
+      "nombre": "Vinilo textil",
+      "descripcion": "Planchado sobre bolsas, camisetas y bodies.",
+      "icono": "shirt"
+    }
+  ],
+  "estilosFuente": [
+    {
+      "id": "script",
+      "nombre": "Caligrafía"
+    },
+    {
+      "id": "serif",
+      "nombre": "Elegante"
+    },
+    {
+      "id": "sans",
+      "nombre": "Moderna"
+    },
+    {
+      "id": "infantil",
+      "nombre": "Infantil"
+    }
+  ],
+  "fuentes": [
+    {
+      "id": "pacifico",
+      "nombre": "Pacifico",
+      "familia": "Pacifico",
+      "peso": 400,
+      "estilo": "script",
+      "tamanoMinCm": 0.8
+    },
+    {
+      "id": "dancing",
+      "nombre": "Dancing Script",
+      "familia": "Dancing Script",
+      "peso": 700,
+      "estilo": "script",
+      "tamanoMinCm": 1.0
+    },
+    {
+      "id": "playfair",
+      "nombre": "Playfair Display",
+      "familia": "Playfair Display",
+      "peso": 700,
+      "estilo": "serif",
+      "tamanoMinCm": null
+    },
+    {
+      "id": "abril",
+      "nombre": "Abril Fatface",
+      "familia": "Abril Fatface",
+      "peso": 400,
+      "estilo": "serif",
+      "tamanoMinCm": null
+    },
+    {
+      "id": "montserrat",
+      "nombre": "Montserrat",
+      "familia": "Montserrat",
+      "peso": 700,
+      "estilo": "sans",
+      "tamanoMinCm": null
+    },
+    {
+      "id": "bebas",
+      "nombre": "Bebas Neue",
+      "familia": "Bebas Neue",
+      "peso": 400,
+      "estilo": "sans",
+      "tamanoMinCm": null
+    },
+    {
+      "id": "fredoka",
+      "nombre": "Fredoka",
+      "familia": "Fredoka",
+      "peso": 600,
+      "estilo": "infantil",
+      "tamanoMinCm": null
+    },
+    {
+      "id": "baloo",
+      "nombre": "Baloo 2",
+      "familia": "Baloo 2",
+      "peso": 700,
+      "estilo": "infantil",
+      "tamanoMinCm": null
+    }
+  ],
+  "colores": [
+    {
+      "id": "ad-negro",
+      "nombre": "Negro",
+      "hex": "#1A1A1A",
+      "tipo": "adhesivo"
+    },
+    {
+      "id": "ad-blanco",
+      "nombre": "Blanco",
+      "hex": "#FFFFFF",
+      "tipo": "adhesivo"
+    },
+    {
+      "id": "ad-oro",
+      "nombre": "Oro",
+      "hex": "#C9A227",
+      "tipo": "adhesivo"
+    },
+    {
+      "id": "ad-plata",
+      "nombre": "Plata",
+      "hex": "#A8A9AD",
+      "tipo": "adhesivo"
+    },
+    {
+      "id": "ad-rosa",
+      "nombre": "Rosa empolvado",
+      "hex": "#E3A9A6",
+      "tipo": "adhesivo"
+    },
+    {
+      "id": "ad-azul",
+      "nombre": "Azul marino",
+      "hex": "#1F2F5C",
+      "tipo": "adhesivo"
+    },
+    {
+      "id": "tx-negro",
+      "nombre": "Negro",
+      "hex": "#1A1A1A",
+      "tipo": "textil"
+    },
+    {
+      "id": "tx-blanco",
+      "nombre": "Blanco",
+      "hex": "#FFFFFF",
+      "tipo": "textil"
+    },
+    {
+      "id": "tx-oro",
+      "nombre": "Oro",
+      "hex": "#C9A227",
+      "tipo": "textil"
+    },
+    {
+      "id": "tx-rosa",
+      "nombre": "Rosa",
+      "hex": "#E8A0B4",
+      "tipo": "textil"
+    },
+    {
+      "id": "tx-azul",
+      "nombre": "Azul marino",
+      "hex": "#1F2F5C",
+      "tipo": "textil"
+    },
+    {
+      "id": "tx-rojo",
+      "nombre": "Rojo",
+      "hex": "#B3261E",
+      "tipo": "textil"
+    },
+    {
+      "id": "tx-granate",
+      "nombre": "Granate",
+      "hex": "#7A1F2B",
+      "tipo": "textil"
+    }
+  ],
+  "adornos": [
+    {
+      "id": "corazon",
+      "nombre": "Corazón",
+      "svg": "M50 90C22 70 5 52 5 31C5 16 16 6 30 6C39 6 46 11 50 19C54 11 61 6 70 6C84 6 95 16 95 31C95 52 78 70 50 90Z",
+      "extra": null
+    },
+    {
+      "id": "estrella",
+      "nombre": "Estrella",
+      "svg": "M50 7L61.2 37.6L93.7 38.8L68.1 58.9L77 90.2L50 72L23 90.2L31.9 58.9L6.3 38.8L38.8 37.6Z",
+      "extra": null
+    },
+    {
+      "id": "corona",
+      "nombre": "Corona",
+      "svg": "M10 76L14 34L32 54L50 22L68 54L86 34L90 76Z M10 82H90V92H10Z M8 27a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM43 14a7 7 0 1 0 14 0a7 7 0 1 0 -14 0ZM80 27a6 6 0 1 0 12 0a6 6 0 1 0 -12 0Z",
+      "extra": null
+    },
+    {
+      "id": "margarita",
+      "nombre": "Margarita",
+      "svg": "M96 50A17 8 0 1 0 62 50A17 8 0 1 0 96 50ZM82.5 82.5A17 8 45 1 0 58.5 58.5A17 8 45 1 0 82.5 82.5ZM50 96A17 8 90 1 0 50 62A17 8 90 1 0 50 96ZM17.5 82.5A17 8 135 1 0 41.5 58.5A17 8 135 1 0 17.5 82.5ZM4 50A17 8 180 1 0 38 50A17 8 180 1 0 4 50ZM17.5 17.5A17 8 225 1 0 41.5 41.5A17 8 225 1 0 17.5 17.5ZM50 4A17 8 270 1 0 50 38A17 8 270 1 0 50 4ZM82.5 17.5A17 8 315 1 0 58.5 41.5A17 8 315 1 0 82.5 17.5ZM38 50a12 12 0 1 0 24 0a12 12 0 1 0 -24 0Z",
+      "extra": null
+    },
+    {
+      "id": "olivo",
+      "nombre": "Ramita de olivo",
+      "svg": "M53 96C52 70 52 40 59 5L52 4C45 40 44 70 46 96ZM29.2 65.1A14 6.5 -145 1 0 52.1 81.1A14 6.5 -145 1 0 29.2 65.1ZM72.5 53.1A14 6.5 -35 1 0 49.5 69.1A14 6.5 -35 1 0 72.5 53.1ZM30.6 41.1A14 6.5 -145 1 0 53.5 57.1A14 6.5 -145 1 0 30.6 41.1ZM73.9 29.1A14 6.5 -35 1 0 51 45.1A14 6.5 -35 1 0 73.9 29.1ZM32 17.1A14 6.5 -145 1 0 55 33.1A14 6.5 -145 1 0 32 17.1ZM75.3 5.1A14 6.5 -35 1 0 52.4 21.1A14 6.5 -35 1 0 75.3 5.1Z",
+      "extra": null
+    }
+  ],
+  "plantillas": [
+    {
+      "id": "cumple-feliz",
+      "ocasion": "cumpleanos",
+      "nombre": "Feliz cumple",
+      "campos": [
+        {
+          "id": "nombre",
+          "etiqueta": "Nombre",
+          "ejemplo": "Lucía",
+          "max": 12
+        }
+      ],
+      "lineas": [
+        "Feliz cumple",
+        "{nombre}"
+      ],
+      "fuente": "pacifico",
+      "adorno": "estrella",
+      "posicionAdorno": "arriba",
+      "productoSugerido": "taza-ceramica",
+      "tamLineas": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cumple-edad",
+      "ocasion": "cumpleanos",
+      "nombre": "Nombre y edad",
+      "campos": [
+        {
+          "id": "nombre",
+          "etiqueta": "Nombre",
+          "ejemplo": "Lucía",
+          "max": 12
+        },
+        {
+          "id": "edad",
+          "etiqueta": "Edad",
+          "ejemplo": "7",
+          "max": 3,
+          "numerico": true
+        }
+      ],
+      "lineas": [
+        "{nombre}",
+        "{edad} años"
+      ],
+      "fuente": "fredoka",
+      "adorno": "corona",
+      "posicionAdorno": "arriba",
+      "productoSugerido": "vaso-reutilizable",
+      "tamLineas": [
+        1,
+        0.75
+      ]
+    },
+    {
+      "id": "boda-nombres-fecha",
+      "ocasion": "bodas",
+      "nombre": "Nombres y fecha",
+      "campos": [
+        {
+          "id": "nombre",
+          "etiqueta": "Nombre 1",
+          "ejemplo": "María",
+          "max": 7
+        },
+        {
+          "id": "nombre2",
+          "etiqueta": "Nombre 2",
+          "ejemplo": "Javier",
+          "max": 7
+        },
+        {
+          "id": "fecha",
+          "etiqueta": "Fecha",
+          "ejemplo": "20.06.2027",
+          "max": 10
+        }
+      ],
+      "lineas": [
+        "{nombre} & {nombre2}",
+        "{fecha}"
+      ],
+      "fuente": "dancing",
+      "adorno": "corazon",
+      "posicionAdorno": "derecha",
+      "productoSugerido": "llavero-tela",
+      "tamLineas": [
+        1,
+        0.55
+      ]
+    }
+  ],
+  "productos": [
+    {
+      "id": "tote-algodon",
+      "nombre": "Bolsa tote de algodón",
+      "tipo": "textil",
+      "ocasiones": [
+        "profesores",
+        "despedidas",
+        "bodas",
+        "empresas",
+        "cumpleanos"
+      ],
+      "imagen": "/img/productos/tote.jpg",
+      "descripcion": "Bolsa de algodón natural con tu texto en vinilo textil.",
+      "cuidados": "Lavar del revés a 30 °C. No planchar sobre el vinilo.",
+      "destacado": true,
+      "activo": true,
+      "precioBase": null,
+      "extraSegundaLinea": null,
+      "texto": {
+        "maxLineas": 2,
+        "maxCaracteresLinea": 20
+      },
+      "zonaTexto": {
+        "x": 25,
+        "y": 50,
+        "ancho": 50,
+        "alto": 22,
+        "anchoCm": 26,
+        "altoCm": 14.3
+      },
+      "tamanos": [
+        {
+          "id": "m",
+          "nombre": "Mediano (20 cm)",
+          "extra": 0
+        },
+        {
+          "id": "g",
+          "nombre": "Grande (28 cm)",
+          "extra": null
+        }
+      ],
+      "variantes": null,
+      "tramosCantidad": null,
+      "colores": null,
+      "permiteAdorno": true
+    },
+    {
+      "id": "body-bebe",
+      "nombre": "Body de bebé",
+      "tipo": "textil",
+      "ocasiones": [
+        "bautizos-comuniones",
+        "cumpleanos",
+        "dia-madre-padre",
+        "navidad"
+      ],
+      "imagen": "/img/productos/body.jpg",
+      "descripcion": "Body de algodón blanco con nombre o frase en vinilo textil.",
+      "cuidados": "Lavar del revés a 30 °C. No usar secadora.",
+      "destacado": true,
+      "activo": true,
+      "precioBase": null,
+      "extraSegundaLinea": null,
+      "texto": {
+        "maxLineas": 2,
+        "maxCaracteresLinea": 12
+      },
+      "zonaTexto": {
+        "x": 32,
+        "y": 30,
+        "ancho": 36,
+        "alto": 18,
+        "anchoCm": 10,
+        "altoCm": 6.2
+      },
+      "tamanos": null,
+      "variantes": {
+        "nombre": "Talla",
+        "opciones": [
+          "0-3 meses",
+          "3-6 meses",
+          "6-12 meses",
+          "12-18 meses"
+        ]
+      },
+      "tramosCantidad": null,
+      "colores": [
+        "tx-negro",
+        "tx-oro",
+        "tx-rosa",
+        "tx-azul",
+        "tx-rojo"
+      ],
+      "permiteAdorno": true
+    },
+    {
+      "id": "vaso-reutilizable",
+      "nombre": "Vaso reutilizable con pajita",
+      "tipo": "adhesivo",
+      "ocasiones": [
+        "profesores",
+        "cumpleanos",
+        "despedidas",
+        "empresas"
+      ],
+      "imagen": "/img/productos/vaso.jpg",
+      "descripcion": "Vaso con tapa y pajita, con nombre o frase en vinilo adhesivo.",
+      "cuidados": "Lavar a mano. No apto para lavavajillas.",
+      "destacado": true,
+      "activo": true,
+      "precioBase": null,
+      "extraSegundaLinea": null,
+      "texto": {
+        "maxLineas": 2,
+        "maxCaracteresLinea": 12
+      },
+      "zonaTexto": {
+        "x": 34,
+        "y": 47,
+        "ancho": 33,
+        "alto": 20,
+        "anchoCm": 7.5,
+        "altoCm": 5.7
+      },
+      "tamanos": null,
+      "variantes": null,
+      "tramosCantidad": [
+        {
+          "desde": 1,
+          "precioUnidad": null
+        },
+        {
+          "desde": 10,
+          "precioUnidad": null
+        },
+        {
+          "desde": 25,
+          "precioUnidad": null
+        }
+      ],
+      "colores": [
+        "ad-negro",
+        "ad-oro",
+        "ad-rosa",
+        "ad-azul"
+      ],
+      "permiteAdorno": true
+    },
+    {
+      "id": "taza-ceramica",
+      "nombre": "Taza de cerámica",
+      "tipo": "adhesivo",
+      "ocasiones": [
+        "dia-madre-padre",
+        "navidad",
+        "profesores",
+        "cumpleanos"
+      ],
+      "imagen": "/img/productos/taza.jpg",
+      "descripcion": "Taza blanca con tu frase en vinilo adhesivo.",
+      "cuidados": "Solo lavado a mano. No apta para lavavajillas ni microondas.",
+      "destacado": true,
+      "activo": true,
+      "precioBase": null,
+      "extraSegundaLinea": null,
+      "texto": {
+        "maxLineas": 2,
+        "maxCaracteresLinea": 14
+      },
+      "zonaTexto": {
+        "x": 25,
+        "y": 43,
+        "ancho": 31,
+        "alto": 20,
+        "anchoCm": 8.5,
+        "altoCm": 6.9
+      },
+      "tamanos": null,
+      "variantes": null,
+      "tramosCantidad": null,
+      "colores": [
+        "ad-negro",
+        "ad-oro",
+        "ad-rosa",
+        "ad-azul"
+      ],
+      "permiteAdorno": true
+    },
+    {
+      "id": "tarro-invitados",
+      "nombre": "Tarro de cristal para invitados",
+      "tipo": "adhesivo",
+      "ocasiones": [
+        "bodas",
+        "bautizos-comuniones"
+      ],
+      "imagen": "/img/productos/tarro.jpg",
+      "descripcion": "Tarro de cristal con nombres y fecha. Ideal como detalle de invitados.",
+      "cuidados": "Lavar a mano.",
+      "destacado": true,
+      "activo": true,
+      "precioBase": null,
+      "extraSegundaLinea": null,
+      "texto": {
+        "maxLineas": 2,
+        "maxCaracteresLinea": 16
+      },
+      "zonaTexto": {
+        "x": 28,
+        "y": 54,
+        "ancho": 44,
+        "alto": 24,
+        "anchoCm": 7,
+        "altoCm": 4.8
+      },
+      "tamanos": null,
+      "variantes": null,
+      "tramosCantidad": [
+        {
+          "desde": 1,
+          "precioUnidad": null
+        },
+        {
+          "desde": 25,
+          "precioUnidad": null
+        },
+        {
+          "desde": 50,
+          "precioUnidad": null
+        }
+      ],
+      "colores": null,
+      "permiteAdorno": true
+    },
+    {
+      "id": "cuaderno-agenda",
+      "nombre": "Cuaderno o agenda personalizada",
+      "tipo": "adhesivo",
+      "ocasiones": [
+        "profesores",
+        "navidad",
+        "cumpleanos",
+        "empresas",
+        "despedidas"
+      ],
+      "imagen": "/img/productos/cuaderno.jpg",
+      "descripcion": "Cuaderno o agenda de tapa dura con nombre, frase o año en vinilo adhesivo.",
+      "cuidados": "Evitar frotar la portada con objetos punzantes.",
+      "destacado": false,
+      "activo": true,
+      "precioBase": null,
+      "extraSegundaLinea": null,
+      "texto": {
+        "maxLineas": 2,
+        "maxCaracteresLinea": 18
+      },
+      "zonaTexto": {
+        "x": 30,
+        "y": 35,
+        "ancho": 44,
+        "alto": 18,
+        "anchoCm": 11,
+        "altoCm": 5.6
+      },
+      "tamanos": [
+        {
+          "id": "a6",
+          "nombre": "A6 (bolsillo)",
+          "extra": 0
+        },
+        {
+          "id": "a5",
+          "nombre": "A5",
+          "extra": null
+        }
+      ],
+      "variantes": {
+        "nombre": "Formato",
+        "opciones": [
+          "Cuaderno de rayas",
+          "Cuaderno liso",
+          "Agenda 2027"
+        ]
+      },
+      "tramosCantidad": null,
+      "colores": [
+        "ad-negro",
+        "ad-oro",
+        "ad-rosa",
+        "ad-azul"
+      ],
+      "permiteAdorno": true
+    },
+    {
+      "id": "llavero-tela",
+      "nombre": "Llavero de tela",
+      "tipo": "textil",
+      "ocasiones": [
+        "bodas",
+        "despedidas",
+        "cumpleanos",
+        "profesores",
+        "dia-madre-padre",
+        "empresas"
+      ],
+      "imagen": "/img/productos/llavero.jpg",
+      "descripcion": "Llavero de tela con mosquetón y cinta ancha de 4 cm, con nombres y fecha en vinilo textil. Detalle de boda muy pedido.",
+      "cuidados": "Lavar a mano en frío. No planchar sobre el vinilo.",
+      "destacado": true,
+      "activo": true,
+      "precioBase": null,
+      "extraSegundaLinea": null,
+      "texto": {
+        "maxLineas": 2,
+        "maxCaracteresLinea": 16
+      },
+      "zonaTexto": {
+        "x": 9,
+        "y": 31,
+        "ancho": 55,
+        "alto": 28,
+        "anchoCm": 12.2,
+        "altoCm": 3.1
+      },
+      "tamanos": null,
+      "variantes": null,
+      "tramosCantidad": [
+        {
+          "desde": 1,
+          "precioUnidad": null
+        },
+        {
+          "desde": 25,
+          "precioUnidad": null
+        },
+        {
+          "desde": 50,
+          "precioUnidad": null
+        }
+      ],
+      "colores": [
+        "tx-negro",
+        "tx-blanco",
+        "tx-oro",
+        "tx-azul",
+        "tx-granate"
+      ],
+      "permiteAdorno": true,
+      "imagenPrevia": "/img/productos/llavero-previa.jpg",
+      "proporcionPrevia": "2 / 1",
+      "altoLetraMinCm": 1
+    },
+    {
+      "id": "tu-objeto",
+      "nombre": "Personaliza tu propio objeto",
+      "tipo": null,
+      "tiposPermitidos": [
+        "adhesivo",
+        "textil"
+      ],
+      "ocasiones": [
+        "cumpleanos",
+        "bodas",
+        "bautizos-comuniones",
+        "dia-madre-padre",
+        "navidad",
+        "profesores",
+        "despedidas",
+        "empresas"
+      ],
+      "imagen": null,
+      "descripcion": "¿Tienes ya una camiseta, una caja, un espejo u otro objeto? Diseña aquí tu texto, elige la altura de letra en centímetros y me lo traes o me lo envías para personalizarlo.",
+      "cuidados": "Según el material del objeto. Te lo indico al confirmar.",
+      "destacado": false,
+      "activo": true,
+      "precioBase": null,
+      "extraSegundaLinea": null,
+      "texto": {
+        "maxLineas": 3,
+        "maxCaracteresLinea": 30
+      },
+      "zonaTexto": null,
+      "medidas": {
+        "altoLetraCm": {
+          "min": 1,
+          "max": 30,
+          "defecto": 5
+        },
+        "pedirMedidasObjeto": true
+      },
+      "tamanos": null,
+      "variantes": null,
+      "tramosCantidad": null,
+      "colores": null,
+      "permiteAdorno": true
+    }
+  ],
+  "galeria": []
+}
