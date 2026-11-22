@@ -1243,6 +1243,24 @@
           "deSeccion": true
         }
       ]
+    },
+    {
+      "id": "cartel-boda",
+      "seccion": "celebraciones",
+      "nombre": "Cartel de bienvenida de boda",
+      "svg": "/img/disenos/cartel-boda.svg",
+      "colorDibujo": "#A88B3D",
+      "colorTexto": "#2B2420",
+      "dosColores": false,
+      "unColor": false,
+      "etiquetaDibujo": "Anillos",
+      "etiquetaTexto": "Texto",
+      "nota": "Cartel que corté para una boda. Elige un color o dos: anillos en un color y texto en otro.",
+      "superficies": [
+        "panel",
+        "pared"
+      ],
+      "sinTexto": true
     }
   ],
   "superficies": [

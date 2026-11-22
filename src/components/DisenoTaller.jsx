@@ -36,9 +36,9 @@ export default function DisenoTaller({ diseno, nombre }) {
   const nombreColor = (hex) => paleta.find((c) => c.hex === hex)?.nombre || hex
   const que = diseno.queTexto || 'nombre'
   const colores = dos
-    ? `dibujo ${nombreColor(dibujo)}, nombre y corazones ${nombreColor(colorTexto)}`
+    ? `${(diseno.etiquetaDibujo || 'dibujo').toLowerCase()} ${nombreColor(dibujo)}, ${(diseno.etiquetaTexto || 'nombre y corazones').toLowerCase()} ${nombreColor(colorTexto)}`
     : `todo en ${nombreColor(colorTexto)}`
-  const detalle = lineas.length
+  const detalle = diseno.sinTexto ? 'el texto tal cual' : lineas.length
     ? lineas.map((l) => `${l.etiqueta.toLowerCase()} «${valor(l).trim() || (l.ejemplo ? l.ejemplo : 'te lo digo')}»`).join(', ')
     : `el ${que} «${nombre || `(te digo el ${que})`}»`
   const mensaje = `Hola Nora, quiero el diseño «${diseno.nombre}» con ${detalle}. Colores: ${colores}.${lugar ? ` Lo he visto sobre: ${lugar.nombre.toLowerCase()}.` : ''}`
@@ -98,14 +98,14 @@ export default function DisenoTaller({ diseno, nombre }) {
         )}
         {dos && (
           <>
-            <p className="taller__etiqueta">Dibujo</p>
+            <p className="taller__etiqueta">{diseno.etiquetaDibujo || 'Dibujo'}</p>
             <Paleta valor={colorDibujo} alElegir={setColorDibujo} etiqueta="Color del dibujo" />
           </>
         )}
-        <p className="taller__etiqueta">{dos ? 'Nombre y corazones' : 'Color'}</p>
+        <p className="taller__etiqueta">{dos ? (diseno.etiquetaTexto || 'Nombre y corazones') : 'Color'}</p>
         <Paleta valor={colorTexto} alElegir={setColorTexto} etiqueta={dos ? 'Color del nombre y los corazones' : 'Color del diseño'} />
         <a className="boton boton--principal taller__pedir" href={enlaceWhatsApp(config.whatsapp, mensaje)}
-          target="_blank" rel="noopener noreferrer">{lineas.length ? 'Lo quiero así' : `Lo quiero con mi ${que}`}</a>
+          target="_blank" rel="noopener noreferrer">{lineas.length || diseno.sinTexto ? 'Lo quiero así' : `Lo quiero con mi ${que}`}</a>
       </div>
     </article>
   )
