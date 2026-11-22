@@ -4,7 +4,7 @@ import { useCatalogo } from '../context/CatalogoContext'
 import Icono from './Icono'
 
 // Tarjetas de sección de la portada: foto de un trabajo real sobre su soporte,
-// título, descripción y «Crear». La primera ocupa todo el ancho en móvil;
+// título con flecha y descripción. Toda la tarjeta es un enlace. La primera ocupa todo el ancho en móvil;
 // en escritorio, las dos primeras van grandes y las otras tres debajo.
 // `imagen` es la ruta base: <ruta>-h-<ancho>.webp (horizontal) y <ruta>-v-<ancho>.webp (vertical).
 export default function AccesosSeccion() {
@@ -28,9 +28,8 @@ export default function AccesosSeccion() {
               )}
             </span>
             <span className="tarjeta-seccion__cuerpo">
-              <span className="tarjeta-seccion__titulo">{s.nombre}</span>
+              <span className="tarjeta-seccion__titulo">{s.nombre} <ArrowRight className="tarjeta-seccion__flecha" size={18} aria-hidden="true" /></span>
               <span className="tarjeta-seccion__texto">{s.descripcion}</span>
-              <span className="tarjeta-seccion__ir">Crear <ArrowRight size={16} aria-hidden="true" /></span>
             </span>
           </Link>
         </li>

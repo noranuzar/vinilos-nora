@@ -25,7 +25,7 @@ export default function Portada() {
       <section className="seccion" id="secciones" aria-labelledby="titulo-ocasiones">
         <div className="contenedor">
           <h2 id="titulo-ocasiones" className="seccion__titulo">¿Qué quieres crear?</h2>
-          <p className="seccion__intro">Elige un tema, escribe el nombre y mira cómo queda.</p>
+          <p className="seccion__intro">Elige una idea y hazla tuya.</p>
           <AccesosSeccion />
           <Buscador />
         </div>
