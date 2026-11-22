@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Prueba de fuentes · ositos (no publicar)</title>
+<style>
+@font-face{font-family:'Merienda';font-weight:700;src:url(fuentes/merienda-latin-700-normal.woff2)}
+@font-face{font-family:'Cookie';font-weight:400;src:url(fuentes/cookie-latin-400-normal.woff2)}
+@font-face{font-family:'Chewy';font-weight:400;src:url(fuentes/chewy-latin-400-normal.woff2)}
+body{margin:0;background:#FBF6EE;color:#2B2420;font-family:system-ui,Arial,sans-serif}
+.c{max-width:1200px;margin:0 auto;padding:20px}
+h1{font-size:1.3rem;margin:0 0 4px} .n{font-size:.85rem;color:#6b5f57;margin:0 0 16px}
+h2{font-size:1.1rem;margin:24px 0 8px}
+.fila{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(min-width:900px){.fila{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.t{background:#E9DFD0;border-radius:12px;padding:10px;--oso:#A88B3D;--txt:#E8458B}
+.t svg{width:100%;height:auto;display:block}
+.t p{margin:6px 0 0;font-size:.75rem;color:#6b5f57;text-align:center}
+</style></head><body><div class="c">
+<h1>Prueba de fuentes para el nombre de los ositos</h1>
+<p class="n">Página de prueba, no enlazada. Dibujos originales sin cambios; solo el nombre usa la fuente. Colores: osito Oro viejo, nombre Fucsia chicle (muestras provisionales).</p>
+<div id="raiz"></div></div>
+<script>
+const FUENTES=[['Merienda',700],['Cookie',400],['Chewy',400]]
+const NOMBRES=['Andrea','Ana','Lucía','Valentina']
+// Caja del nombre original en coordenadas de cada SVG (medida sobre los archivos).
+const OSITOS=[
+ {id:'abrazo',titulo:'Osito abrazo',svg:'/img/disenos/osito-abrazo-capas.svg',caja:{x:-212,y:357,w:1319,h:450}},
+ {id:'asomado',titulo:'Osito observando',svg:'/img/disenos/osito-asomado-capas.svg',caja:{x:-538,y:283,w:1667,h:472},apoyo:'abajo',altoLibre:390},
+]
+const NS='http://www.w3.org/2000/svg'
+async function main(){
+  await document.fonts.load("700 40px Merienda");await document.fonts.load("40px Cookie");await document.fonts.load("40px Chewy")
+  const raiz=document.getElementById('raiz')
+  for(const o of OSITOS){
+    const base=await (await fetch(o.svg)).text()
+    for(const [fam,peso] of FUENTES){
+      const h2=document.createElement('h2');h2.textContent=`${o.titulo} · ${fam}`;raiz.appendChild(h2)
+      const fila=document.createElement('div');fila.className='fila';raiz.appendChild(fila)
+      let tam=null
+      for(const nombre of NOMBRES){
+        const t=document.createElement('div');t.className='t'
+        // ids de máscara únicos por tarjeta
+        const uid=`${o.id}-${fam}-${nombre}`.replace(/[^A-Za-z0-9-]/g,'')
+        t.innerHTML=base.replaceAll(`${o.id==='abrazo'?'abrazo':'asomado'}-oso`,uid+'-oso').replaceAll(`${o.id==='abrazo'?'abrazo':'asomado'}-txt`,uid+'-txt')
+        fila.appendChild(t)
+        const svg=t.querySelector('svg'), slot=svg.querySelector('#slot-nombre')
+        slot.innerHTML=''
+        const tx=document.createElementNS(NS,'text');tx.textContent=nombre
+        tx.setAttribute('fill','#fff');tx.setAttribute('font-family',fam);tx.setAttribute('font-weight',peso)
+        tx.setAttribute('text-anchor','middle');tx.setAttribute('x',o.caja.x+o.caja.w/2)
+        slot.appendChild(tx)
+        // Tamaño: calibrado con «Andrea» para ocupar el ancho original; mismo tamaño para los demás nombres,
+        // salvo que no quepan: entonces se reduce hasta el ancho original.
+        if(tam===null){tx.setAttribute('font-size',100);const b=tx.getBBox();tam=o.apoyo==='abajo'?Math.min(100*o.caja.w/b.width,100*o.altoLibre/b.height):Math.min(100*o.caja.w/b.width,100*o.caja.h/b.height)}
+        let fs=tam;tx.setAttribute('font-size',fs);let b=tx.getBBox()
+        let nota=''
+        if(b.width>o.caja.w){fs=fs*o.caja.w/b.width;tx.setAttribute('font-size',fs);nota=` · reducido al ${Math.round(100*fs/tam)} %`}
+        // Centrar verticalmente en la caja original
+        // Abrazo: centrado en la caja original. Observando: apoyado en la línea inferior del nombre original,
+        // para que, como en el original, solo los trazos altos pasen entre las patas.
+        tx.setAttribute('y',0);b=tx.getBBox()
+        tx.setAttribute('y', o.apoyo==='abajo' ? (o.caja.y+o.caja.h-25)-(b.y+b.height) : o.caja.y+o.caja.h/2-(b.y+b.height/2))
+        const p=document.createElement('p');p.textContent=nombre+nota;t.appendChild(p)
+      }
+    }
+  }
+  document.body.dataset.listo='1'
+}
+main()
+</script></body></html>
