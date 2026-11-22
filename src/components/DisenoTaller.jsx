@@ -6,7 +6,10 @@ import { enlaceWhatsApp } from '../lib/whatsapp'
 // dos colores (dibujo / nombre y corazones) o uno solo.
 // El SVG usa las variables --oso y --txt, así que se recolorea sin tocar el archivo.
 export default function DisenoTaller({ diseno, nombre }) {
-  const { config } = useCatalogo()
+  const { config, superficies } = useCatalogo()
+  const lugares = (diseno.superficies || []).map((id) => superficies.find((s) => s.id === id)).filter(Boolean)
+  const [lugarId, setLugarId] = useState(lugares[0]?.id || 'blanco')
+  const lugar = lugares.find((s) => s.id === lugarId)
   const paleta = config.paletaDisenos || []
   const [svg, setSvg] = useState('')
   const [dos, setDos] = useState(diseno.dosColores)
@@ -39,9 +42,27 @@ export default function DisenoTaller({ diseno, nombre }) {
 
   return (
     <article className="taller">
-      <div className="taller__lienzo" style={{ '--oso': dibujo, '--txt': colorTexto }}
-        role="img" aria-label={`${diseno.nombre}, diseño de ejemplo`}
-        dangerouslySetInnerHTML={{ __html: svg }} />
+      {lugar ? (
+        <div className="taller__escena" style={{ backgroundImage: `url(${lugar.imagen})` }}
+          role="img" aria-label={`${diseno.nombre} sobre ${lugar.nombre.toLowerCase()}, imagen de ejemplo`}>
+          <div className="taller__zona" style={{
+            left: `${lugar.zona.x - lugar.zona.ancho / 2}%`, top: `${lugar.zona.y - lugar.zona.alto / 2}%`,
+            width: `${lugar.zona.ancho}%`, height: `${lugar.zona.alto}%`, '--oso': dibujo, '--txt': colorTexto,
+          }} dangerouslySetInnerHTML={{ __html: svg }} />
+          <span className="taller__aviso">Imagen de ejemplo</span>
+        </div>
+      ) : (
+        <div className="taller__lienzo" style={{ '--oso': dibujo, '--txt': colorTexto }}
+          role="img" aria-label={`${diseno.nombre}, diseño de ejemplo`}
+          dangerouslySetInnerHTML={{ __html: svg }} />
+      )}
+      {lugares.length > 0 && (
+        <div className="taller__lugares" role="group" aria-label="Ver el diseño sobre">
+          {[{ id: 'blanco', nombre: 'Blanco' }, ...lugares].map((l) => (
+            <button key={l.id} type="button" aria-pressed={lugarId === l.id} onClick={() => setLugarId(l.id)}>{l.nombre}</button>
+          ))}
+        </div>
+      )}
       <div className="taller__cuerpo">
         <h3 className="taller__titulo">{diseno.nombre} <span className="etiqueta-real">Hecho en el taller</span></h3>
         {diseno.nota && <p className="taller__nota">{diseno.nota}</p>}

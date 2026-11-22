@@ -19,5 +19,6 @@ export async function cargarCatalogo() {
     productos,
     galeria: catalogo.galeria,
     disenosTaller: catalogo.disenosTaller || [],
+    superficies: catalogo.superficies || [],
   }
 }

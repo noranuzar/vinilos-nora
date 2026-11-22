@@ -605,3 +605,12 @@ img { max-width: 100%; display: block; }
 .seccion-tema__lista { margin-bottom: 8px; }
 .seccion-tema__adorno { width: 22px; height: 22px; margin: 0 auto 2px; fill: currentColor; opacity: .75; flex: none; }
 .seccion-tema__cero { display: block; margin: 22px 0 8px; text-align: center; font-weight: 700; color: var(--terracota-osc); }
+
+/* Diseño del taller sobre una superficie de ejemplo (pared, cuadro, panel, camiseta) */
+.taller__escena { position: relative; aspect-ratio: 4 / 5; background-size: cover; background-position: center; }
+.taller__zona { position: absolute; display: flex; align-items: center; justify-content: center; mix-blend-mode: multiply; }
+.taller__zona svg { display: block; max-width: 100%; max-height: 100%; width: auto; height: 100%; }
+.taller__aviso { position: absolute; right: 8px; bottom: 8px; padding: 3px 8px; border-radius: 999px; background: rgba(255,255,255,.85); font-size: 0.75rem; font-weight: 700; color: var(--tinta-suave); }
+.taller__lugares { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px 4px; }
+.taller__lugares button { min-height: 40px; padding: 0 14px; border-radius: 999px; border: 2px solid var(--borde); background: var(--blanco); font: inherit; font-size: 0.875rem; font-weight: 700; color: var(--tinta); cursor: pointer; }
+.taller__lugares button[aria-pressed='true'] { background: var(--tinta); border-color: var(--tinta); color: var(--crema); }

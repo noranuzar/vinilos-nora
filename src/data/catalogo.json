@@ -1131,7 +1131,11 @@
       "colorTexto": "#E85A8C",
       "dosColores": false,
       "nota": "En la imagen pone «Andrea»: lo corto con el nombre que escribas.",
-      "queTexto": "nombre"
+      "queTexto": "nombre",
+      "superficies": [
+        "pared",
+        "cuadro"
+      ]
     },
     {
       "id": "osito-asomado",
@@ -1142,7 +1146,11 @@
       "colorTexto": "#E85A8C",
       "dosColores": true,
       "nota": "En la imagen pone «Andrea»: lo corto con el nombre que escribas.",
-      "queTexto": "nombre"
+      "queTexto": "nombre",
+      "superficies": [
+        "pared",
+        "cuadro"
+      ]
     },
     {
       "id": "numero-50",
@@ -1154,7 +1162,71 @@
       "dosColores": false,
       "unColor": true,
       "nota": "Cortado en el taller para un panel redondo. Lo corto con el número que me digas.",
-      "queTexto": "número"
+      "queTexto": "número",
+      "superficies": [
+        "panel"
+      ]
+    },
+    {
+      "id": "numero-12",
+      "seccion": "equipos",
+      "nombre": "Número de camiseta",
+      "svg": "/img/disenos/numero-12.svg",
+      "colorDibujo": "#2B2420",
+      "colorTexto": "#2B2420",
+      "dosColores": false,
+      "unColor": true,
+      "nota": "Número de 22 cm para la espalda, como el que corto para los clubes. Dime el número y el nombre.",
+      "queTexto": "número",
+      "superficies": [
+        "camiseta"
+      ]
+    }
+  ],
+  "superficies": [
+    {
+      "id": "pared",
+      "nombre": "Pared",
+      "imagen": "/img/superficies/pared-infantil.jpg",
+      "zona": {
+        "x": 50,
+        "y": 38,
+        "ancho": 72,
+        "alto": 34
+      }
+    },
+    {
+      "id": "cuadro",
+      "nombre": "Cuadro",
+      "imagen": "/img/superficies/marco.jpg",
+      "zona": {
+        "x": 50,
+        "y": 48,
+        "ancho": 64,
+        "alto": 36
+      }
+    },
+    {
+      "id": "panel",
+      "nombre": "Panel redondo",
+      "imagen": "/img/superficies/panel-redondo.jpg",
+      "zona": {
+        "x": 50,
+        "y": 51,
+        "ancho": 61,
+        "alto": 33
+      }
+    },
+    {
+      "id": "camiseta",
+      "nombre": "Camiseta",
+      "imagen": "/img/superficies/camiseta.jpg",
+      "zona": {
+        "x": 49.7,
+        "y": 32.7,
+        "ancho": 27,
+        "alto": 22.5
+      }
     }
   ]
 }
