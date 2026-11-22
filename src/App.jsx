@@ -7,6 +7,7 @@ import Catalogo from './pages/Catalogo'
 import Ficha from './pages/Ficha'
 import Cesta from './pages/Cesta'
 import Galeria from './pages/Galeria'
+import Seccion from './pages/Seccion'
 
 function ArribaAlNavegar() {
   const { pathname } = useLocation()
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/producto/:id" element={<Ficha />} />
           <Route path="/cesta" element={<Cesta />} />
           <Route path="/trabajos" element={<Galeria />} />
+          <Route path="/seccion/:id" element={<Seccion />} />
           <Route path="*" element={<Portada />} />
         </Routes>
       </main>

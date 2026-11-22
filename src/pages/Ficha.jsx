@@ -20,7 +20,12 @@ export default function Ficha() {
     const p = plantillas.find((x) => x.id === pid)
     if (p && aplicada.current !== pid) {
       aplicada.current = pid
-      setDiseno((d) => aplicarPlantilla(p, d))
+      // Si viene de una sección con el nombre ya escrito (?nombre=...), se conserva.
+      const nombre = (params.get('nombre') || '').trim()
+      setDiseno((d) => {
+        const nuevo = aplicarPlantilla(p, d)
+        return nombre ? { ...nuevo, campos: { ...nuevo.campos, nombre } } : nuevo
+      })
     }
   }, [params, plantillas, setDiseno])
 

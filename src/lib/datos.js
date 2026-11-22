@@ -8,6 +8,7 @@ export async function cargarCatalogo() {
   const productos = catalogo.productos.filter((p) => p.activo)
   return {
     config: catalogo.config,
+    secciones: [...(catalogo.secciones || [])].sort((a, b) => a.orden - b.orden),
     ocasiones: [...catalogo.ocasiones].sort((a, b) => a.orden - b.orden),
     tipos: catalogo.tipos,
     estilosFuente: catalogo.estilosFuente,
@@ -17,5 +18,6 @@ export async function cargarCatalogo() {
     plantillas: catalogo.plantillas,
     productos,
     galeria: catalogo.galeria,
+    disenosTaller: catalogo.disenosTaller || [],
   }
 }

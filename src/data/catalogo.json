@@ -1,7 +1,7 @@
 {
   "config": {
     "nombreTienda": "Vinilos Nora",
-    "lema": "Regalos personalizados con vinilo, hechos a mano en Madrid",
+    "lema": "Vinilo de corte personalizado, hecho a mano en Madrid",
     "whatsapp": "34697154442",
     "diasMinimosEntrega": 5,
     "moneda": "EUR",
@@ -23,7 +23,8 @@
       "Bizum"
     ],
     "avisoDerechos": "No personalizamos logos de marcas ni personajes con derechos de autor.",
-    "avisoImagenes": "Imagen orientativa. El producto real puede variar ligeramente.",
+    "avisoImagenes": "Imagen de ejemplo. Tú pones el objeto; yo te envío el vinilo listo para aplicar.",
+    "avisoColocacion": "Recibirás tu vinilo con instrucciones. La colocación corre de tu cuenta.",
     "posicionesAdorno": [
       {
         "id": "arriba",
@@ -42,56 +43,119 @@
       "adhesivo": 0.5,
       "textil": 0.6
     },
-    "avisoPrueba": "Antes de producir hago una prueba de corte. Si algún texto es demasiado pequeño para cortarse bien, te escribo para ajustarlo antes de empezar."
+    "avisoPrueba": "Antes de producir hago una prueba de corte. Si algún texto es demasiado pequeño para cortarse bien, te escribo para ajustarlo antes de empezar.",
+    "paletaDisenos": [
+      {
+        "nombre": "Rosa chicle",
+        "hex": "#E85A8C"
+      },
+      {
+        "nombre": "Azul bebé",
+        "hex": "#3B8FD9"
+      },
+      {
+        "nombre": "Menta",
+        "hex": "#2FA58A"
+      },
+      {
+        "nombre": "Lavanda",
+        "hex": "#8E6CCB"
+      },
+      {
+        "nombre": "Mostaza",
+        "hex": "#D99A12"
+      },
+      {
+        "nombre": "Coral",
+        "hex": "#F06A4A"
+      },
+      {
+        "nombre": "Oro viejo",
+        "hex": "#A88B3D"
+      },
+      {
+        "nombre": "Negro",
+        "hex": "#2B2420"
+      }
+    ]
   },
   "ocasiones": [
     {
       "id": "cumpleanos",
       "nombre": "Cumpleaños",
       "icono": "cake",
-      "orden": 1
+      "orden": 1,
+      "seccion": "celebraciones"
     },
     {
       "id": "bodas",
       "nombre": "Bodas",
       "icono": "gem",
-      "orden": 2
+      "orden": 2,
+      "seccion": "celebraciones"
     },
     {
       "id": "bautizos-comuniones",
-      "nombre": "Bautizos y comuniones",
+      "nombre": "Comuniones",
       "icono": "baby",
-      "orden": 3
+      "orden": 3,
+      "seccion": "celebraciones"
     },
     {
       "id": "dia-madre-padre",
       "nombre": "Día de la Madre y del Padre",
       "icono": "flower",
-      "orden": 4
+      "orden": 4,
+      "seccion": "fechas"
     },
     {
       "id": "navidad",
       "nombre": "Navidad",
       "icono": "tree",
-      "orden": 5
+      "orden": 5,
+      "seccion": "fechas"
     },
     {
       "id": "profesores",
       "nombre": "Profesores",
       "icono": "graduation",
-      "orden": 6
+      "orden": 6,
+      "seccion": "fechas"
     },
     {
       "id": "despedidas",
       "nombre": "Despedidas",
       "icono": "party",
-      "orden": 7
+      "orden": 7,
+      "seccion": "celebraciones"
     },
     {
       "id": "empresas",
       "nombre": "Empresas",
       "icono": "briefcase",
-      "orden": 8
+      "orden": 8,
+      "seccion": "negocios"
+    },
+    {
+      "id": "bebe",
+      "nombre": "Bebé y su habitación",
+      "icono": "baby",
+      "orden": 9,
+      "seccion": "bebe"
+    },
+    {
+      "id": "bautizo",
+      "nombre": "Bautizo",
+      "icono": "baby",
+      "orden": 10,
+      "seccion": "bebe"
+    },
+    {
+      "id": "equipos",
+      "nombre": "Equipos",
+      "icono": "shirt",
+      "orden": 11,
+      "seccion": "equipos"
     }
   ],
   "tipos": [
@@ -306,6 +370,30 @@
   ],
   "plantillas": [
     {
+      "id": "numero-grande",
+      "ocasion": "cumpleanos",
+      "nombre": "Número grande",
+      "campos": [
+        {
+          "id": "numero",
+          "etiqueta": "Número",
+          "ejemplo": "50",
+          "max": 3,
+          "numerico": true
+        }
+      ],
+      "lineas": [
+        "{numero}"
+      ],
+      "fuente": "abril",
+      "adorno": null,
+      "posicionAdorno": "arriba",
+      "productoSugerido": "tu-objeto",
+      "tamLineas": [
+        1
+      ]
+    },
+    {
       "id": "cumple-feliz",
       "ocasion": "cumpleanos",
       "nombre": "Feliz cumple",
@@ -398,12 +486,173 @@
         1,
         0.55
       ]
+    },
+    {
+      "id": "bebe-corazones",
+      "ocasion": "bebe",
+      "nombre": "Nombre con corazones",
+      "campos": [
+        {
+          "id": "nombre",
+          "etiqueta": "Nombre",
+          "ejemplo": "Martina",
+          "max": 12
+        }
+      ],
+      "lineas": [
+        "{nombre}"
+      ],
+      "fuente": "pacifico",
+      "adorno": "corazon",
+      "posicionAdorno": "derecha",
+      "productoSugerido": "tu-objeto",
+      "tamLineas": [
+        1
+      ]
+    },
+    {
+      "id": "bebe-fecha",
+      "ocasion": "bebe",
+      "nombre": "Nombre y fecha",
+      "campos": [
+        {
+          "id": "nombre",
+          "etiqueta": "Nombre",
+          "ejemplo": "Hugo",
+          "max": 12
+        },
+        {
+          "id": "fecha",
+          "etiqueta": "Fecha",
+          "ejemplo": "12.03.2026",
+          "max": 10
+        }
+      ],
+      "lineas": [
+        "{nombre}",
+        "{fecha}"
+      ],
+      "fuente": "fredoka",
+      "adorno": "estrella",
+      "posicionAdorno": "arriba",
+      "productoSugerido": "body-bebe",
+      "tamLineas": [
+        1,
+        0.5
+      ]
+    },
+    {
+      "id": "equipo-nombre-numero",
+      "ocasion": "equipos",
+      "nombre": "Nombre y número",
+      "campos": [
+        {
+          "id": "nombre",
+          "etiqueta": "Nombre",
+          "ejemplo": "Lucía",
+          "max": 12
+        },
+        {
+          "id": "numero",
+          "etiqueta": "Número",
+          "ejemplo": "10",
+          "max": 2,
+          "numerico": true
+        }
+      ],
+      "lineas": [
+        "{nombre}",
+        "{numero}"
+      ],
+      "fuente": "bebas",
+      "adorno": "estrella",
+      "posicionAdorno": "arriba",
+      "productoSugerido": "tu-objeto",
+      "tamLineas": [
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "negocio-nombre",
+      "ocasion": "empresas",
+      "nombre": "Nombre del negocio",
+      "campos": [
+        {
+          "id": "nombre",
+          "etiqueta": "Nombre del negocio",
+          "ejemplo": "Panadería Lola",
+          "max": 20
+        }
+      ],
+      "lineas": [
+        "{nombre}"
+      ],
+      "fuente": "playfair",
+      "adorno": "olivo",
+      "posicionAdorno": "arriba",
+      "productoSugerido": "tu-objeto",
+      "tamLineas": [
+        1
+      ]
+    },
+    {
+      "id": "navidad-nombre",
+      "ocasion": "navidad",
+      "nombre": "Feliz Navidad",
+      "campos": [
+        {
+          "id": "nombre",
+          "etiqueta": "Nombre",
+          "ejemplo": "Familia Ruiz",
+          "max": 16
+        }
+      ],
+      "lineas": [
+        "Feliz Navidad",
+        "{nombre}"
+      ],
+      "fuente": "dancing",
+      "adorno": "estrella",
+      "posicionAdorno": "arriba",
+      "productoSugerido": "taza-ceramica",
+      "tamLineas": [
+        1,
+        0.7
+      ]
+    },
+    {
+      "id": "profe-gracias",
+      "ocasion": "profesores",
+      "nombre": "Gracias, profe",
+      "campos": [
+        {
+          "id": "nombre",
+          "etiqueta": "Nombre",
+          "ejemplo": "seño Ana",
+          "max": 14
+        }
+      ],
+      "lineas": [
+        "Gracias,",
+        "{nombre}"
+      ],
+      "fuente": "baloo",
+      "adorno": "corazon",
+      "posicionAdorno": "arriba",
+      "productoSugerido": "taza-ceramica",
+      "tamLineas": [
+        0.7,
+        1
+      ]
     }
   ],
   "productos": [
     {
       "id": "tote-algodon",
-      "nombre": "Bolsa tote de algodón",
+      "codigo": "RT-T-01",
+      "grupo": "RT",
+      "nombre": "Vinilo para bolsa tote",
       "tipo": "textil",
       "ocasiones": [
         "profesores",
@@ -450,13 +699,17 @@
     },
     {
       "id": "body-bebe",
-      "nombre": "Body de bebé",
+      "codigo": "RT-T-02",
+      "grupo": "RT",
+      "nombre": "Vinilo para body de bebé",
       "tipo": "textil",
       "ocasiones": [
         "bautizos-comuniones",
         "cumpleanos",
         "dia-madre-padre",
-        "navidad"
+        "navidad",
+        "bebe",
+        "bautizo"
       ],
       "imagen": "/img/productos/body.jpg",
       "descripcion": "Body de algodón blanco con nombre o frase en vinilo textil.",
@@ -499,7 +752,9 @@
     },
     {
       "id": "vaso-reutilizable",
-      "nombre": "Vaso reutilizable con pajita",
+      "codigo": "RG-A-02",
+      "grupo": "RG",
+      "nombre": "Vinilo para vaso reutilizable",
       "tipo": "adhesivo",
       "ocasiones": [
         "profesores",
@@ -552,7 +807,9 @@
     },
     {
       "id": "taza-ceramica",
-      "nombre": "Taza de cerámica",
+      "codigo": "RG-A-01",
+      "grupo": "RG",
+      "nombre": "Vinilo para taza",
       "tipo": "adhesivo",
       "ocasiones": [
         "dia-madre-padre",
@@ -592,11 +849,14 @@
     },
     {
       "id": "tarro-invitados",
-      "nombre": "Tarro de cristal para invitados",
+      "codigo": "RG-A-03",
+      "grupo": "RG",
+      "nombre": "Vinilo para tarro de cristal",
       "tipo": "adhesivo",
       "ocasiones": [
         "bodas",
-        "bautizos-comuniones"
+        "bautizos-comuniones",
+        "bautizo"
       ],
       "imagen": "/img/productos/tarro.jpg",
       "descripcion": "Tarro de cristal con nombres y fecha. Ideal como detalle de invitados.",
@@ -638,7 +898,9 @@
     },
     {
       "id": "cuaderno-agenda",
-      "nombre": "Cuaderno o agenda personalizada",
+      "codigo": "RG-A-04",
+      "grupo": "RG",
+      "nombre": "Vinilo para cuaderno o agenda",
       "tipo": "adhesivo",
       "ocasiones": [
         "profesores",
@@ -697,6 +959,8 @@
     },
     {
       "id": "llavero-tela",
+      "codigo": "RT-T-03",
+      "grupo": "RT",
       "nombre": "Llavero de tela",
       "tipo": "textil",
       "ocasiones": [
@@ -756,6 +1020,8 @@
     },
     {
       "id": "tu-objeto",
+      "codigo": "PO-X-01",
+      "grupo": "PO",
       "nombre": "Personaliza tu propio objeto",
       "tipo": null,
       "tiposPermitidos": [
@@ -770,7 +1036,10 @@
         "navidad",
         "profesores",
         "despedidas",
-        "empresas"
+        "empresas",
+        "bebe",
+        "bautizo",
+        "equipos"
       ],
       "imagen": null,
       "descripcion": "¿Tienes ya una camiseta, una caja, un espejo u otro objeto? Diseña aquí tu texto, elige la altura de letra en centímetros y me lo traes o me lo envías para personalizarlo.",
@@ -799,5 +1068,77 @@
       "permiteAdorno": true
     }
   ],
-  "galeria": []
+  "galeria": [],
+  "secciones": [
+    {
+      "id": "bebe",
+      "nombre": "Bebé y niños",
+      "descripcion": "Su nombre en la pared, en el cuadro o en su ropa.",
+      "icono": "baby",
+      "orden": 1,
+      "sugerencias": [
+        "Dulces sueños",
+        "Bienvenida",
+        "Mi rincón"
+      ]
+    },
+    {
+      "id": "equipos",
+      "nombre": "Equipos y deporte",
+      "descripcion": "Nombre y número para las camisetas del equipo.",
+      "icono": "shirt",
+      "orden": 2,
+      "sugerencias": []
+    },
+    {
+      "id": "celebraciones",
+      "nombre": "Celebraciones",
+      "descripcion": "Cumpleaños, bodas, comuniones y despedidas.",
+      "icono": "party",
+      "orden": 3,
+      "sugerencias": [
+        "Gracias por venir",
+        "Te echaremos de menos"
+      ]
+    },
+    {
+      "id": "negocios",
+      "nombre": "Negocios",
+      "descripcion": "El nombre de tu negocio, horarios y rótulos.",
+      "icono": "briefcase",
+      "orden": 4,
+      "sugerencias": []
+    },
+    {
+      "id": "fechas",
+      "nombre": "Fechas especiales",
+      "descripcion": "Día de la Madre y del Padre, Navidad y profesores.",
+      "icono": "flower",
+      "orden": 5,
+      "sugerencias": [
+        "Te quiero, mamá",
+        "Feliz Navidad"
+      ]
+    }
+  ],
+  "disenosTaller": [
+    {
+      "id": "osito-abrazo",
+      "seccion": "bebe",
+      "nombre": "Osito abrazo",
+      "svg": "/img/disenos/osito-abrazo.svg",
+      "colorDibujo": "#E85A8C",
+      "colorTexto": "#E85A8C",
+      "dosColores": false
+    },
+    {
+      "id": "osito-asomado",
+      "seccion": "bebe",
+      "nombre": "Osito observando",
+      "svg": "/img/disenos/osito-asomado.svg",
+      "colorDibujo": "#A88B3D",
+      "colorTexto": "#E85A8C",
+      "dosColores": true
+    }
+  ]
 }

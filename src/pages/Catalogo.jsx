@@ -33,9 +33,9 @@ export default function Catalogo() {
     <section className="seccion" aria-labelledby="titulo-catalogo">
       <div className="contenedor">
         <h1 id="titulo-catalogo" className="seccion__titulo">
-          {nombreOcasion ? `Regalos para ${nombreOcasion.toLowerCase()}` : 'Catálogo'}
+          {nombreOcasion ? `Ideas para ${nombreOcasion.toLowerCase()}` : 'Ideas para personalizar'}
         </h1>
-        <p className="seccion__intro">Toca un producto para personalizarlo y ver cómo queda.</p>
+        <p className="seccion__intro">Toca una idea y personalízala. Solo vendo el vinilo, no el objeto.</p>
 
         <div className="filtros">
           <div className="filtros__buscar">
