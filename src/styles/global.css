@@ -633,3 +633,32 @@ img { max-width: 100%; display: block; }
   .hero--foto .hero__foto { max-width: 560px; margin: 0 auto; }
   .ventajas--discretas { justify-content: center; }
 }
+/* Tarjetas de sección de la portada (0.6) */
+.tarjetas-seccion { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.tarjeta-seccion--ancha { grid-column: 1 / -1; }
+.tarjeta-seccion a { display: flex; flex-direction: column; height: 100%; background: #fff; border-radius: 18px; overflow: hidden;
+  color: inherit; text-decoration: none; box-shadow: 0 1px 2px rgba(43,36,32,.06), 0 6px 18px rgba(43,36,32,.06);
+  transition: transform .25s ease, box-shadow .25s ease; }
+.tarjeta-seccion__foto { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: #F1E9DC; }
+.tarjeta-seccion--ancha .tarjeta-seccion__foto { aspect-ratio: 4 / 3; }
+.tarjeta-seccion__foto img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.tarjeta-seccion__icono { display: grid; place-items: center; height: 100%; color: var(--terracota, #9C4221); }
+.tarjeta-seccion__icono svg { width: 44px; height: 44px; }
+.tarjeta-seccion__cuerpo { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px; flex: 1; }
+.tarjeta-seccion__titulo { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
+.tarjeta-seccion--grande .tarjeta-seccion__titulo { font-size: 1.3rem; }
+.tarjeta-seccion__texto { font-size: .875rem; line-height: 1.35; color: var(--tinta-suave); }
+.tarjeta-seccion__ir { margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: var(--terracota, #9C4221); }
+.tarjeta-seccion__ir svg { transition: transform .25s ease; }
+.tarjeta-seccion a:hover, .tarjeta-seccion a:focus-visible { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(43,36,32,.08), 0 14px 30px rgba(43,36,32,.12); }
+.tarjeta-seccion a:hover img { transform: scale(1.03); }
+.tarjeta-seccion a:hover .tarjeta-seccion__ir svg, .tarjeta-seccion a:focus-visible .tarjeta-seccion__ir svg { transform: translateX(4px); }
+.tarjeta-seccion a:active { transform: scale(.98); }
+@media (min-width: 760px) {
+  .tarjetas-seccion { grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .tarjeta-seccion { grid-column: span 2; }
+  .tarjeta-seccion--grande { grid-column: span 3; }
+  .tarjeta-seccion__foto, .tarjeta-seccion--ancha .tarjeta-seccion__foto { aspect-ratio: 4 / 3; }
+  .tarjeta-seccion--grande .tarjeta-seccion__cuerpo { padding: 16px 18px 18px; }
+}
+@media (prefers-reduced-motion: reduce) { .tarjeta-seccion a, .tarjeta-seccion img, .tarjeta-seccion__ir svg { transition: none; } }

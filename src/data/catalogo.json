@@ -1157,7 +1157,8 @@
         "Dulces sueños",
         "Bienvenida",
         "Mi rincón"
-      ]
+      ],
+      "imagen": "/img/secciones/bebe"
     },
     {
       "id": "equipos",
@@ -1165,7 +1166,8 @@
       "descripcion": "Nombre y número para las camisetas del equipo.",
       "icono": "shirt",
       "orden": 2,
-      "sugerencias": []
+      "sugerencias": [],
+      "imagen": "/img/secciones/equipos"
     },
     {
       "id": "celebraciones",
@@ -1176,7 +1178,8 @@
       "sugerencias": [
         "Gracias por venir",
         "Te echaremos de menos"
-      ]
+      ],
+      "imagen": "/img/secciones/celebraciones"
     },
     {
       "id": "negocios",
@@ -1184,7 +1187,8 @@
       "descripcion": "El nombre de tu negocio, horarios y rótulos.",
       "icono": "briefcase",
       "orden": 4,
-      "sugerencias": []
+      "sugerencias": [],
+      "imagen": "/img/secciones/negocios"
     },
     {
       "id": "fechas",
@@ -1195,7 +1199,8 @@
       "sugerencias": [
         "Te quiero, mamá",
         "Feliz Navidad"
-      ]
+      ],
+      "imagen": null
     }
   ],
   "disenosTaller": [

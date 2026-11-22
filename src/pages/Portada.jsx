@@ -1,12 +1,8 @@
-import { MessageCircle, Smartphone, Truck } from 'lucide-react'
-import { useCatalogo } from '../context/CatalogoContext'
 import Buscador from '../components/Buscador'
 import AccesosSeccion from '../components/AccesosSeccion'
 import AccesosTipo from '../components/AccesosTipo'
-import Destacados from '../components/Destacados'
 
 export default function Portada() {
-  const { config } = useCatalogo()
 
   return (
     <>
@@ -23,11 +19,6 @@ export default function Portada() {
             <img className="hero__foto" src="/img/portada/taller-960.jpg" width="960" height="1200" fetchPriority="high"
               alt="Mesa de taller con bobinas de vinilo de colores, herramientas y plantas, con luz natural" />
           </picture>
-          <ul className="ventajas ventajas--discretas">
-            <li><MessageCircle size={16} aria-hidden="true" />Pedido por WhatsApp</li>
-            <li><Smartphone size={16} aria-hidden="true" />Pago con {config.pago.join(', ')}</li>
-            <li><Truck size={16} aria-hidden="true" />Recogida en Madrid o envío</li>
-          </ul>
         </div>
       </section>
 
@@ -40,7 +31,6 @@ export default function Portada() {
         </div>
       </section>
 
-      <Destacados />
 
       <section className="seccion" aria-labelledby="titulo-tipos">
         <div className="contenedor">
