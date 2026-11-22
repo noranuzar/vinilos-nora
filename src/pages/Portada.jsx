@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Scissors, Sparkles, MessageCircle, Smartphone, Truck } from 'lucide-react'
 import { useCatalogo } from '../context/CatalogoContext'
 import Buscador from '../components/Buscador'
-import AccesosOcasion from '../components/AccesosOcasion'
+import AccesosSeccion from '../components/AccesosSeccion'
 import AccesosTipo from '../components/AccesosTipo'
 import Destacados from '../components/Destacados'
 
@@ -42,9 +42,9 @@ export default function Portada() {
 
       <section className="seccion" aria-labelledby="titulo-ocasiones">
         <div className="contenedor">
-          <h2 id="titulo-ocasiones" className="seccion__titulo">¿Para qué ocasión?</h2>
-          <p className="seccion__intro">Ideas pensadas para cada momento.</p>
-          <AccesosOcasion />
+          <h2 id="titulo-ocasiones" className="seccion__titulo">¿Qué quieres crear?</h2>
+          <p className="seccion__intro">Elige un tema, escribe el nombre y mira cómo queda.</p>
+          <AccesosSeccion />
         </div>
       </section>
 

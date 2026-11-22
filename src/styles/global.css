@@ -576,3 +576,32 @@ img { max-width: 100%; display: block; }
 .aviso--atencion svg { color: var(--terracota-osc); }
 .aviso--info { background: var(--salvia-claro); color: var(--salvia-osc); }
 .aviso__cuerpo { display: grid; gap: 10px; justify-items: start; }
+
+/* ---------- Secciones (Bebé y niños, Equipos…) ---------- */
+.miga { margin: 0 0 6px; font-size: 0.875rem; color: var(--tinta-suave); }
+.miga a { color: inherit; }
+.seccion-tema h1 { margin: 0 0 6px; }
+.seccion-tema__campo { margin-top: 18px; }
+.seccion-tema__campo input { font-size: 1.25rem; min-height: 56px; border-width: 2px; border-color: var(--tinta); }
+.sugerencias { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0 20px; font-size: 0.875rem; color: var(--tinta-suave); }
+.sugerencias button { min-height: 40px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--crema-osc); color: var(--tinta); font: inherit; font-weight: 700; cursor: pointer; }
+.seccion-tema__taller { display: grid; gap: 14px; margin-bottom: 14px; }
+@media (min-width: 760px) { .seccion-tema__taller { grid-template-columns: repeat(2, 1fr); } }
+.taller { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; box-shadow: var(--sombra); }
+.taller__lienzo { padding: 14px; background: #fff; }
+.taller__lienzo svg { display: block; width: 100%; height: auto; }
+.taller__cuerpo { padding: 0 16px 16px; }
+.taller__titulo { margin: 0 0 4px; font-size: 1.125rem; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.etiqueta-real { font-family: inherit; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: var(--salvia-claro); color: var(--salvia-osc); }
+.taller__nota { margin: 0 0 10px; font-size: 0.875rem; color: var(--tinta-suave); }
+.taller__modo { display: flex; padding: 4px; margin-bottom: 8px; border-radius: 999px; background: var(--crema-osc); }
+.taller__modo button { flex: 1; min-height: 40px; border: 0; border-radius: 999px; background: transparent; font: inherit; font-weight: 700; color: var(--tinta-suave); cursor: pointer; }
+.taller__modo button[aria-pressed='true'] { background: var(--tinta); color: var(--crema); }
+.taller__etiqueta { margin: 8px 0 6px; font-size: 0.8125rem; font-weight: 700; color: var(--tinta-suave); }
+.taller__paleta { display: flex; flex-wrap: wrap; gap: 8px; }
+.taller__color { width: 36px; height: 36px; border-radius: 50%; border: 3px solid var(--blanco); box-shadow: 0 0 0 1px var(--borde); cursor: pointer; }
+.taller__color[aria-pressed='true'] { box-shadow: 0 0 0 3px var(--tinta); }
+.taller__pedir { margin-top: 14px; width: 100%; justify-content: center; }
+.seccion-tema__lista { margin-bottom: 8px; }
+.seccion-tema__adorno { width: 22px; height: 22px; margin: 0 auto 2px; fill: currentColor; opacity: .75; flex: none; }
+.seccion-tema__cero { display: block; margin: 22px 0 8px; text-align: center; font-weight: 700; color: var(--terracota-osc); }
