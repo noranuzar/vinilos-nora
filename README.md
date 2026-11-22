@@ -32,7 +32,10 @@ Todo está en **`src/data/catalogo.json`**.
 - `config.whatsapp`: número con prefijo 34, sin espacios ni `+`.
 - `config.diasMinimosEntrega`: días de antelación mínimos.
 - `activo: false` oculta un producto sin borrarlo.
-- `colores` (en cada producto): lista de colores permitidos. `null` = todos los de su tipo. En taza, vaso, cuaderno y body se han quitado blanco y plata porque no se verían.
+- `colores` (lista general): inventario real de vinilo. 14 adhesivos y 8 textiles. Cada color lleva `acabado` (mate, brillo o `null` si está pendiente) y `hex`, una muestra de pantalla **provisional** (`hexProvisional: true`): es una aproximación pendiente de calibrar, no una medición del material.
+- `colores` (en cada producto): lista de colores permitidos. `null` = todos los de su tipo. En taza, vaso y cuaderno se han quitado Blanco y Plateado porque no se verían sobre un objeto claro.
+- Colores retirados (no reutilizar estos ids para otro color): `ad-oro`, `ad-plata`, `ad-rosa`, `ad-azul`, `tx-oro`, `tx-rosa`, `tx-azul`, `tx-rojo`, `tx-granate`. Si una cesta guardada tiene uno de ellos, la página de la cesta avisa de que ya no está disponible.
+- `config.avisoColores`: aviso de tonos orientativos bajo el selector de color.
 - `permiteAdorno`: si el producto admite uno de los adornos de `adornos` (corazón, estrella, corona, margarita, ramita de olivo). Su precio va en `extra`.
 - `tu-objeto`: producto para quien trae su propio objeto. No tiene foto; la clienta elige la altura de letra en cm (`medidas.altoLetraCm`).
 - `zonaTexto`: dónde se pinta el texto sobre la foto, en % (x, y, ancho, alto). `anchoCm` y `altoCm` son la medida real aproximada de esa zona; con ellas la ficha calcula la altura de las letras en cm. **Ajústalas con tus productos reales.**

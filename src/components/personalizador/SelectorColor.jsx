@@ -1,4 +1,4 @@
-export default function SelectorColor({ colores, valor, onChange }) {
+export default function SelectorColor({ colores, valor, onChange, aviso }) {
   return (
     <fieldset className="grupo-control">
       <legend>Color del vinilo</legend>
@@ -16,6 +16,7 @@ export default function SelectorColor({ colores, valor, onChange }) {
           </button>
         ))}
       </div>
+      {aviso && <p className="ayuda">{aviso}</p>}
     </fieldset>
   )
 }
