@@ -663,3 +663,13 @@ img { max-width: 100%; display: block; }
 .tarjeta-seccion__flecha { flex: none; color: var(--terracota, #9C4221); opacity: .7; transition: transform .25s ease, opacity .25s ease; }
 .tarjeta-seccion a:hover .tarjeta-seccion__flecha, .tarjeta-seccion a:focus-visible .tarjeta-seccion__flecha { transform: translateX(4px); opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .tarjeta-seccion__flecha { transition: none; } }
+/* Resumen del pedido antes de WhatsApp (0.6) */
+.solicitud { margin-top: 16px; padding: 16px; border: 1px solid var(--linea, #e8dfd2); border-radius: 16px; background: #fffdf9; text-align: left; }
+.solicitud__titulo { font-family: 'Fraunces', Georgia, serif; font-size: 1.15rem; margin: 0 0 10px; }
+.solicitud__datos { margin: 0 0 14px; display: grid; gap: 8px; }
+.solicitud__datos div { display: grid; gap: 2px; }
+.solicitud__datos dt { font-size: .8rem; color: var(--tinta-suave); }
+.solicitud__datos dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.solicitud__nota { font-size: .85rem; color: var(--tinta-suave); margin: 8px 0 12px; }
+.solicitud__editar { margin-top: 8px; }
+.solicitud textarea { width: 100%; }

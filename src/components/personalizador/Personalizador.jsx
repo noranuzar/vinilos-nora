@@ -1,10 +1,8 @@
 // Personalizador de un producto. El diseño (texto, fuente, color, adorno) es
 // compartido entre objetos; tamaño, cantidad y fecha son propios de este objeto.
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Minus, Plus, Check, ShoppingBag, TriangleAlert, Scissors, Info } from 'lucide-react'
+import { Minus, Plus, TriangleAlert, Scissors, Info, MessageCircle } from 'lucide-react'
 import { useCatalogo } from '../../context/CatalogoContext'
-import { useCesta } from '../../context/CestaContext'
 import { useDiseno } from '../../context/DisenoContext'
 import { lineasDelDiseno, aplicarPlantilla, coloresPermitidos, colorParaProducto } from '../../lib/diseno'
 import { calcularPrecio } from '../../lib/precio'
@@ -19,6 +17,7 @@ import SelectorAdorno from './SelectorAdorno'
 import SelectorObjeto from './SelectorObjeto'
 import SelectorAjuste from './SelectorAjuste'
 import ResumenPrecio from './ResumenPrecio'
+import SolicitudWhatsApp from '../SolicitudWhatsApp'
 
 // Texto para el pedido: cómo quiere colocado el diseño.
 function describirAjuste(a, conZona, lineas) {
@@ -41,7 +40,6 @@ function describirAjuste(a, conZona, lineas) {
 export default function Personalizador({ producto }) {
   const datos = useCatalogo()
   const { config, fuentes, estilosFuente, colores, adornos, plantillas, productos, tipos } = datos
-  const { anadir } = useCesta()
   const [diseno, setDiseno] = useDiseno()
 
   // Opciones propias de este objeto
@@ -53,7 +51,7 @@ export default function Personalizador({ producto }) {
   const [altoLetra, setAltoLetra] = useState(producto.medidas?.altoLetraCm.defecto || 5)
   const [medidasObjeto, setMedidasObjeto] = useState('')
   const [intento, setIntento] = useState(false)
-  const [anadido, setAnadido] = useState(false)
+  const [pedido, setPedido] = useState(null)
   const [verZona, setVerZona] = useState(false)
   const [medida, setMedida] = useState(null)
 
@@ -118,8 +116,8 @@ export default function Personalizador({ producto }) {
   }, [diseno, plantilla, lineasReales, fecha, fechaMin, medidasObjeto, producto, config.diasMinimosEntrega])
   const visibles = intento ? errores : {}
 
-  const cambiar = (cambios) => { setDiseno((d) => ({ ...d, ...cambios })); setAnadido(false) }
-  const elegirPlantilla = (p) => { setDiseno((d) => aplicarPlantilla(p, d)); setAnadido(false) }
+  const cambiar = (cambios) => { setDiseno((d) => ({ ...d, ...cambios })); setPedido(null) }
+  const elegirPlantilla = (p) => { setDiseno((d) => aplicarPlantilla(p, d)); setPedido(null) }
   const ponerLibre = () => cambiar({
     modo: 'libre',
     plantillaId: null,
@@ -140,29 +138,27 @@ export default function Personalizador({ producto }) {
       }, 0)
       return
     }
-    anadir({
-      productoId: producto.id,
-      producto: producto.nombre,
-      imagen: producto.imagen,
-      tipo: tipos.find((t) => t.id === tipoSel)?.nombre,
-      lineas: lineasReales.filter(Boolean),
-      diseno: plantilla && diseno.modo === 'plantilla' ? plantilla.nombre : null,
-      fuente: fuente.nombre,
-      color: color.nombre,
-      adorno: adorno ? `${adorno.nombre} (${diseno.posicionAdorno})` : null,
-      ajuste: describirAjuste(ajuste, conZona, lineasReales.filter(Boolean)),
-      tamano: tamano?.nombre || null,
-      variante: variante ? `${producto.variantes.nombre}: ${variante}` : null,
-      altoLetraCm: producto.medidas ? altoLetra : null,
-      objeto: producto.medidas ? medidasObjeto.trim() : null,
-      medida: medida ? `letras de ~${cmTexto(medida.letraCm)} cm, diseño de ~${cmTexto(medida.anchoCm)} × ${cmTexto(medida.altoCm)} cm` : null,
-      revisarTamano: textoPequeno,
-      cantidad,
-      fecha,
-      precioUnidad: precio.unidad,
-      total: precio.total,
+    const plantillaUsada = plantilla && diseno.modo === 'plantilla' ? plantilla : null
+    const variantePedido = variante ? `${producto.variantes.nombre}: ${variante}` : null
+    setPedido({
+      referencia: `${producto.codigo || producto.id.toUpperCase()}${plantillaUsada ? ` / ${plantillaUsada.id.toUpperCase()}` : ''}`,
+      filas: [
+        ['Diseño', plantillaUsada ? `Plantilla «${plantillaUsada.nombre}»` : 'Texto propio'],
+        ['Texto', lineasReales.filter(Boolean).join(' / ')],
+        ['Tipo de letra', fuente.nombre],
+        ['Color', `${color.nombre} (${tipos.find((t) => t.id === tipoSel)?.nombre?.toLowerCase()})`],
+        ['Adorno', adorno ? `${adorno.nombre} (${diseno.posicionAdorno})` : null],
+        ['Colocación', describirAjuste(ajuste, conZona, lineasReales.filter(Boolean))],
+        ['Soporte', producto.nombre],
+        ['Tamaño', tamano?.nombre || null],
+        ['Opción', variantePedido],
+        ['Altura de letra elegida', producto.medidas ? `${cmTexto(altoLetra)} cm` : null],
+        ['Objeto y medidas (según me indicas)', producto.medidas ? medidasObjeto.trim() : null],
+        ['Cantidad', String(cantidad)],
+        ['Lo necesito para', fecha ? formatearFecha(fecha) : null],
+        ['Revisar tamaño', textoPequeno ? 'Sí: las letras quedan por debajo del mínimo recomendado' : null],
+      ],
     })
-    setAnadido(true)
     setIntento(false)
   }
 
@@ -370,17 +366,11 @@ export default function Personalizador({ producto }) {
           </p>
         )}
 
-        {anadido ? (
-          <div className="anadido" role="status">
-            <p><Check size={20} aria-hidden="true" /> Añadido a tu cesta.</p>
-            <div className="anadido__acciones">
-              <Link to="/cesta" className="boton boton--principal"><ShoppingBag size={20} aria-hidden="true" /> Ver mi cesta</Link>
-              <Link to="/catalogo" className="boton boton--secundario">Seguir mirando</Link>
-            </div>
-          </div>
+        {pedido ? (
+          <SolicitudWhatsApp referencia={pedido.referencia} filas={pedido.filas} onEditar={() => setPedido(null)} />
         ) : (
           <button type="submit" className="boton boton--principal boton--ancho">
-            <ShoppingBag size={20} aria-hidden="true" /> Añadir a la cesta
+            <MessageCircle size={20} aria-hidden="true" /> Revisar pedido
           </button>
         )}
 

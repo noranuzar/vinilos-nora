@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useCatalogo } from '../context/CatalogoContext'
-import { enlaceWhatsApp } from '../lib/whatsapp'
+import SolicitudWhatsApp from './SolicitudWhatsApp'
 
 // Diseño real del taller (dibujo fijo en SVG) con colores a elegir:
 // dos colores (dibujo / nombre y corazones) o uno solo.
@@ -22,6 +22,7 @@ export default function DisenoTaller({ diseno, nombre }) {
   const variante = variantes.find((v) => v.id === varianteId)
   const archivo = variante?.svg || diseno.svg
   const [svg, setSvg] = useState('')
+  const [revisando, setRevisando] = useState(false)
   const [dos, setDos] = useState(diseno.dosColores)
   const [colorDibujo, setColorDibujo] = useState(diseno.colorDibujo)
   const [colorTexto, setColorTexto] = useState(diseno.colorTexto)
@@ -57,10 +58,18 @@ export default function DisenoTaller({ diseno, nombre }) {
   const colores = dos
     ? `${(diseno.etiquetaDibujo || 'dibujo').toLowerCase()} ${nombreColor(dibujo)}, ${(diseno.etiquetaTexto || 'nombre y corazones').toLowerCase()} ${nombreColor(colorTexto)}`
     : `todo en ${nombreColor(colorTexto)}`
-  const detalle = diseno.sinTexto ? 'el texto tal cual' : lineas.length
-    ? lineas.map((l) => `${l.etiqueta.toLowerCase()} «${valor(l).trim() || 'te lo digo'}»`).join(', ')
-    : `el ${que} «${nombre || `(te digo el ${que})`}»`
-  const mensaje = `Hola Nora, quiero el diseño «${diseno.nombre}»${variante ? ` (${variante.nombre.toLowerCase()})` : ''} con ${detalle}. Colores: ${colores}.${lugar ? ` Lo he visto sobre: ${lugar.nombre.toLowerCase()}${medida ? ` (medida aproximada: ${medida})` : ''}.` : ''}`
+  const textoPedido = diseno.sinTexto ? 'El texto del diseño, tal cual'
+    : lineas.length ? lineas.map((l) => `${l.etiqueta}: ${valor(l).trim() || 'te lo digo por WhatsApp'}`).join(' · ')
+    : (nombre?.trim() || 'Te lo digo por WhatsApp')
+  const material = (diseno.material || 'adhesivo') === 'textil' ? 'Vinilo textil' : 'Vinilo adhesivo'
+  const filas = [
+    ['Diseño', `${diseno.nombre}${variante ? ` (${variante.nombre.toLowerCase()})` : ''}`],
+    [diseno.sinTexto || lineas.length ? 'Texto' : (que === 'nombre' ? 'Nombre' : que), textoPedido],
+    ['Colores', colores.charAt(0).toUpperCase() + colores.slice(1)],
+    ['Material', material],
+    ['Soporte', lugar ? lugar.nombre : 'Sin soporte (vista sobre fondo blanco)'],
+  ]
+  const referencia = (diseno.codigo || diseno.id).toUpperCase()
 
   const contenido = escrito
     ? { children: <TextoVivo lineas={textos} separacion={diseno.separacion || 0} /> }
@@ -138,8 +147,9 @@ export default function DisenoTaller({ diseno, nombre }) {
         <p className="taller__etiqueta">{dos ? (diseno.etiquetaTexto || 'Nombre y corazones') : 'Color'}</p>
         <Paleta valor={colorTexto} alElegir={setColorTexto} etiqueta={dos ? 'Color del nombre y los corazones' : 'Color del diseño'} />
         {config.avisoColores && <p className="taller__medida">{config.avisoColores}</p>}
-        <a className="boton boton--principal taller__pedir" href={enlaceWhatsApp(config.whatsapp, mensaje)}
-          target="_blank" rel="noopener noreferrer">{lineas.length || diseno.sinTexto ? 'Lo quiero así' : `Lo quiero con mi ${que}`}</a>
+        {revisando
+          ? <SolicitudWhatsApp referencia={referencia} filas={filas} onEditar={() => setRevisando(false)} />
+          : <button type="button" className="boton boton--principal taller__pedir" onClick={() => setRevisando(true)}>Revisar pedido</button>}
       </div>
     </article>
   )
