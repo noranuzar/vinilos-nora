@@ -42,7 +42,8 @@
       "adhesivo": 0.5,
       "textil": 0.6
     },
-    "avisoPrueba": "Antes de producir hago una prueba de corte. Si algún texto es demasiado pequeño para cortarse bien, te escribo para ajustarlo antes de empezar."
+    "avisoPrueba": "Antes de producir hago una prueba de corte. Si algún texto es demasiado pequeño para cortarse bien, te escribo para ajustarlo antes de empezar.",
+    "avisoColores": "Los colores en pantalla son orientativos y pueden variar respecto al material real."
   },
   "ocasiones": [
     {
@@ -197,79 +198,177 @@
       "id": "ad-negro",
       "nombre": "Negro",
       "hex": "#1A1A1A",
-      "tipo": "adhesivo"
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
     },
     {
       "id": "ad-blanco",
       "nombre": "Blanco",
       "hex": "#FFFFFF",
-      "tipo": "adhesivo"
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
     },
     {
-      "id": "ad-oro",
-      "nombre": "Oro",
-      "hex": "#C9A227",
-      "tipo": "adhesivo"
-    },
-    {
-      "id": "ad-plata",
-      "nombre": "Plata",
+      "id": "ad-plateado",
+      "nombre": "Plateado",
       "hex": "#A8A9AD",
-      "tipo": "adhesivo"
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
     },
     {
-      "id": "ad-rosa",
-      "nombre": "Rosa empolvado",
-      "hex": "#E3A9A6",
-      "tipo": "adhesivo"
+      "id": "ad-oro-viejo",
+      "nombre": "Oro viejo",
+      "hex": "#A88B3D",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
     },
     {
-      "id": "ad-azul",
-      "nombre": "Azul marino",
-      "hex": "#1F2F5C",
-      "tipo": "adhesivo"
+      "id": "ad-verde-lima",
+      "nombre": "Verde lima",
+      "hex": "#9ACD32",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-morado",
+      "nombre": "Morado",
+      "hex": "#6A3D9A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-fucsia-chicle",
+      "nombre": "Fucsia chicle",
+      "hex": "#E8458B",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-amarillo",
+      "nombre": "Amarillo",
+      "hex": "#F2C200",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-verde-bosque",
+      "nombre": "Verde bosque",
+      "hex": "#2E5E3A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-rojo-oscuro",
+      "nombre": "Rojo oscuro",
+      "hex": "#9B1B1F",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-naranja",
+      "nombre": "Naranja",
+      "hex": "#F07A1A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-beige",
+      "nombre": "Beige",
+      "hex": "#D9C7A7",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "brillo"
+    },
+    {
+      "id": "ad-gris-oscuro",
+      "nombre": "Gris oscuro",
+      "hex": "#4A4A4A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "brillo"
+    },
+    {
+      "id": "ad-burdeos",
+      "nombre": "Burdeos",
+      "hex": "#6D1A2A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": null
     },
     {
       "id": "tx-negro",
       "nombre": "Negro",
       "hex": "#1A1A1A",
-      "tipo": "textil"
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
       "id": "tx-blanco",
       "nombre": "Blanco",
       "hex": "#FFFFFF",
-      "tipo": "textil"
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-oro",
-      "nombre": "Oro",
-      "hex": "#C9A227",
-      "tipo": "textil"
+      "id": "tx-melocoton",
+      "nombre": "Melocotón",
+      "hex": "#F4B183",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-rosa",
-      "nombre": "Rosa",
-      "hex": "#E8A0B4",
-      "tipo": "textil"
+      "id": "tx-verde-oliva",
+      "nombre": "Verde oliva",
+      "hex": "#708238",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-azul",
-      "nombre": "Azul marino",
-      "hex": "#1F2F5C",
-      "tipo": "textil"
+      "id": "tx-verde-menta",
+      "nombre": "Verde menta",
+      "hex": "#98D7C2",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-rojo",
-      "nombre": "Rojo",
-      "hex": "#B3261E",
-      "tipo": "textil"
+      "id": "tx-lila",
+      "nombre": "Lila",
+      "hex": "#C8A2C8",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-granate",
-      "nombre": "Granate",
-      "hex": "#7A1F2B",
-      "tipo": "textil"
+      "id": "tx-azul-cielo",
+      "nombre": "Azul cielo",
+      "hex": "#8EC5E8",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
+    },
+    {
+      "id": "tx-burdeos",
+      "nombre": "Burdeos",
+      "hex": "#6D1A2A",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": null
     }
   ],
   "adornos": [
@@ -488,13 +587,7 @@
         ]
       },
       "tramosCantidad": null,
-      "colores": [
-        "tx-negro",
-        "tx-oro",
-        "tx-rosa",
-        "tx-azul",
-        "tx-rojo"
-      ],
+      "colores": null,
       "permiteAdorno": true
     },
     {
@@ -544,9 +637,17 @@
       ],
       "colores": [
         "ad-negro",
-        "ad-oro",
-        "ad-rosa",
-        "ad-azul"
+        "ad-oro-viejo",
+        "ad-verde-lima",
+        "ad-morado",
+        "ad-fucsia-chicle",
+        "ad-amarillo",
+        "ad-verde-bosque",
+        "ad-rojo-oscuro",
+        "ad-naranja",
+        "ad-beige",
+        "ad-gris-oscuro",
+        "ad-burdeos"
       ],
       "permiteAdorno": true
     },
@@ -584,9 +685,17 @@
       "tramosCantidad": null,
       "colores": [
         "ad-negro",
-        "ad-oro",
-        "ad-rosa",
-        "ad-azul"
+        "ad-oro-viejo",
+        "ad-verde-lima",
+        "ad-morado",
+        "ad-fucsia-chicle",
+        "ad-amarillo",
+        "ad-verde-bosque",
+        "ad-rojo-oscuro",
+        "ad-naranja",
+        "ad-beige",
+        "ad-gris-oscuro",
+        "ad-burdeos"
       ],
       "permiteAdorno": true
     },
@@ -689,9 +798,17 @@
       "tramosCantidad": null,
       "colores": [
         "ad-negro",
-        "ad-oro",
-        "ad-rosa",
-        "ad-azul"
+        "ad-oro-viejo",
+        "ad-verde-lima",
+        "ad-morado",
+        "ad-fucsia-chicle",
+        "ad-amarillo",
+        "ad-verde-bosque",
+        "ad-rojo-oscuro",
+        "ad-naranja",
+        "ad-beige",
+        "ad-gris-oscuro",
+        "ad-burdeos"
       ],
       "permiteAdorno": true
     },
@@ -742,13 +859,7 @@
           "precioUnidad": null
         }
       ],
-      "colores": [
-        "tx-negro",
-        "tx-blanco",
-        "tx-oro",
-        "tx-azul",
-        "tx-granate"
-      ],
+      "colores": null,
       "permiteAdorno": true,
       "imagenPrevia": "/img/productos/llavero-previa.jpg",
       "proporcionPrevia": "2 / 1",
