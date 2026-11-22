@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X, ShoppingBag } from 'lucide-react'
 import { useCesta } from '../context/CestaContext'
+
+// La cesta está oculta mientras los pedidos se envían por WhatsApp (0.6). Su código se conserva.
+const MOSTRAR_CESTA = false
 import Logo from './Logo'
 
 const ENLACES = [
@@ -27,7 +30,7 @@ export default function Cabecera() {
         </nav>
 
         <div className="cabecera__acciones">
-          <Link
+          {MOSTRAR_CESTA && <Link
             to="/cesta"
             className="icono-boton"
             aria-label={`Cesta, ${totalUnidades} ${totalUnidades === 1 ? 'artículo' : 'artículos'}`}
@@ -35,7 +38,7 @@ export default function Cabecera() {
           >
             <ShoppingBag size={24} aria-hidden="true" />
             {totalUnidades > 0 && <span className="contador" aria-hidden="true">{totalUnidades}</span>}
-          </Link>
+          </Link>}
           <button
             type="button"
             className="icono-boton solo-movil"
@@ -55,7 +58,7 @@ export default function Cabecera() {
             {ENLACES.map((e) => (
               <li key={e.a}><Link to={e.a} onClick={cerrar}>{e.texto}</Link></li>
             ))}
-            <li><Link to="/cesta" onClick={cerrar}>Mi cesta</Link></li>
+            {MOSTRAR_CESTA && <li><Link to="/cesta" onClick={cerrar}>Mi cesta</Link></li>}
           </ul>
         </nav>
       )}

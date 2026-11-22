@@ -7,7 +7,7 @@ import { enlaceWhatsApp } from '../lib/whatsapp'
 // `filas`: [etiqueta, valor]; las filas sin valor no se muestran ni se envían.
 // El mensaje contiene exactamente lo que el cliente ve en el resumen, más sus observaciones.
 function mensajePedido(referencia, filas, observaciones) {
-  const lineas = [`Hola Nora, quiero hacer este pedido.`, `Referencia: ${referencia}`]
+  const lineas = [`Hola Nora, quiero hacer esta solicitud.`, `Referencia: ${referencia}`]
   filas.filter(([, v]) => v).forEach(([e, v]) => lineas.push(`${e}: ${v}`))
   if (observaciones?.trim()) lineas.push(`Observaciones: ${observaciones.trim()}`)
   return lineas.join('\n')
@@ -20,8 +20,8 @@ export default function SolicitudWhatsApp({ referencia, filas, onEditar }) {
   const id = `obs-${referencia.replace(/[^A-Za-z0-9]/g, '')}`
 
   return (
-    <div className="solicitud" role="region" aria-label="Resumen del pedido">
-      <h3 className="solicitud__titulo">Resumen de tu pedido</h3>
+    <div className="solicitud" role="region" aria-label="Resumen de la solicitud">
+      <h3 className="solicitud__titulo">Resumen de tu solicitud</h3>
       <dl className="solicitud__datos">
         <div><dt>Referencia</dt><dd>{referencia}</dd></div>
         {visibles.map(([e, v]) => (
@@ -37,7 +37,7 @@ export default function SolicitudWhatsApp({ referencia, filas, onEditar }) {
       <p className="solicitud__nota">Esto es exactamente lo que me llegará por WhatsApp. Te responderé para confirmar medida, precio y entrega.</p>
       <a className="boton boton--principal boton--ancho" href={enlaceWhatsApp(config.whatsapp, mensajePedido(referencia, filas, observaciones))}
         target="_blank" rel="noopener noreferrer">
-        <MessageCircle size={20} aria-hidden="true" /> Enviar por WhatsApp
+        <MessageCircle size={20} aria-hidden="true" /> Enviar solicitud por WhatsApp
       </a>
       {onEditar && <button type="button" className="boton boton--secundario boton--ancho solicitud__editar" onClick={onEditar}>Seguir editando</button>}
     </div>

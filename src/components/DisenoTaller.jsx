@@ -17,6 +17,9 @@ export default function DisenoTaller({ diseno, nombre }) {
   // Colores reales del material del diseño; si el diseño limita colores, solo esos.
   const paleta = inventario.filter((c) => c.tipo === (diseno.material || 'adhesivo') && (!diseno.colores || diseno.colores.includes(c.id)))
   const hex = (id) => inventario.find((c) => c.id === id)?.hex
+  // Colores muy claros (blanco, plateado, beige…) apenas se ven sobre fondos claros: solo en pantalla
+  // se añade un contorno suave. No cambia el vector ni el color del vinilo.
+  const claro = (id) => { const h = hex(id); if (!h) return false; const [r, g, b] = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255); return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.62 }
   const variantes = diseno.variantes || []
   const [varianteId, setVarianteId] = useState(variantes[0]?.id)
   const variante = variantes.find((v) => v.id === varianteId)
@@ -53,6 +56,7 @@ export default function DisenoTaller({ diseno, nombre }) {
   const textos = lineas.map((l) => ({ ...l, texto: (valor(l).trim() || l.ejemplo || '') })).filter((l) => l.texto)
 
   const dibujo = dos ? colorDibujo : colorTexto
+  const conContorno = claro(dibujo) || claro(colorTexto)
   const nombreColor = (id) => inventario.find((c) => c.id === id)?.nombre || id
   const que = diseno.queTexto || 'nombre'
   const colores = dos
@@ -89,14 +93,14 @@ export default function DisenoTaller({ diseno, nombre }) {
       {lugar ? (
         <div className="taller__escena" style={{ backgroundImage: `url(${lugar.imagen})` }}
           role="img" aria-label={`${diseno.nombre} sobre ${lugar.nombre.toLowerCase()}, imagen de ejemplo`}>
-          <div className="taller__zona" style={{
+          <div className={`taller__zona${conContorno ? ' taller__contorno' : ''}`} style={{
             left: `${lugar.zona.x - lugar.zona.ancho / 2}%`, top: `${lugar.zona.y - lugar.zona.alto / 2}%`,
             width: `${lugar.zona.ancho}%`, height: `${lugar.zona.alto}%`, '--oso': hex(dibujo), '--txt': hex(colorTexto),
           }} {...contenido} />
           <span className="taller__aviso">Imagen de ejemplo</span>
         </div>
       ) : (
-        <div className="taller__lienzo" style={{ '--oso': hex(dibujo), '--txt': hex(colorTexto) }}
+        <div className={`taller__lienzo${conContorno ? ' taller__contorno' : ''}`} style={{ '--oso': hex(dibujo), '--txt': hex(colorTexto) }}
           role="img" aria-label={`${diseno.nombre}, diseño de ejemplo`} {...contenido} />
       )}
       <div className="taller__lugares" role="group" aria-label="Ver el diseño sobre">
@@ -147,9 +151,10 @@ export default function DisenoTaller({ diseno, nombre }) {
         <p className="taller__etiqueta">{dos ? (diseno.etiquetaTexto || 'Nombre y corazones') : 'Color'}</p>
         <Paleta valor={colorTexto} alElegir={setColorTexto} etiqueta={dos ? 'Color del nombre y los corazones' : 'Color del diseño'} />
         {config.avisoColores && <p className="taller__medida">{config.avisoColores}</p>}
+        {conContorno && <p className="taller__medida">El contorno gris de la imagen solo sirve para ver el color claro en pantalla; no forma parte del vinilo.</p>}
         {revisando
           ? <SolicitudWhatsApp referencia={referencia} filas={filas} onEditar={() => setRevisando(false)} />
-          : <button type="button" className="boton boton--principal taller__pedir" onClick={() => setRevisando(true)}>Revisar pedido</button>}
+          : <button type="button" className="boton boton--principal taller__pedir" onClick={() => setRevisando(true)}>Revisar solicitud</button>}
       </div>
     </article>
   )

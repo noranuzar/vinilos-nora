@@ -673,3 +673,5 @@ img { max-width: 100%; display: block; }
 .solicitud__nota { font-size: .85rem; color: var(--tinta-suave); margin: 8px 0 12px; }
 .solicitud__editar { margin-top: 8px; }
 .solicitud textarea { width: 100%; }
+/* Solo pantalla: contorno suave para colores claros sobre fondos claros */
+.taller__contorno svg { filter: drop-shadow(0 0 0.6px rgba(43,36,32,.75)) drop-shadow(0 0 1.2px rgba(43,36,32,.35)); }

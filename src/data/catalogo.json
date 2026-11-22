@@ -1219,20 +1219,7 @@
         "cuadro"
       ],
       "material": "adhesivo",
-      "colores": [
-        "ad-negro",
-        "ad-oro-viejo",
-        "ad-verde-lima",
-        "ad-morado",
-        "ad-fucsia-chicle",
-        "ad-amarillo",
-        "ad-verde-bosque",
-        "ad-rojo-oscuro",
-        "ad-naranja",
-        "ad-beige",
-        "ad-gris-oscuro",
-        "ad-burdeos"
-      ],
+      "colores": null,
       "nombreEditable": {
         "estado": "pendiente-fuente",
         "fuente": null,
@@ -1254,20 +1241,7 @@
         "cuadro"
       ],
       "material": "adhesivo",
-      "colores": [
-        "ad-negro",
-        "ad-oro-viejo",
-        "ad-verde-lima",
-        "ad-morado",
-        "ad-fucsia-chicle",
-        "ad-amarillo",
-        "ad-verde-bosque",
-        "ad-rojo-oscuro",
-        "ad-naranja",
-        "ad-beige",
-        "ad-gris-oscuro",
-        "ad-burdeos"
-      ],
+      "colores": null,
       "nombreEditable": {
         "estado": "pendiente-fuente",
         "fuente": null,

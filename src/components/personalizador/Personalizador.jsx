@@ -370,7 +370,7 @@ export default function Personalizador({ producto }) {
           <SolicitudWhatsApp referencia={pedido.referencia} filas={pedido.filas} onEditar={() => setPedido(null)} />
         ) : (
           <button type="submit" className="boton boton--principal boton--ancho">
-            <MessageCircle size={20} aria-hidden="true" /> Revisar pedido
+            <MessageCircle size={20} aria-hidden="true" /> Revisar solicitud
           </button>
         )}
 
