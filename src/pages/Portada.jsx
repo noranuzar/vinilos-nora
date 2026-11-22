@@ -15,19 +15,19 @@ export default function Portada() {
         <div className="contenedor">
           <div className="hero__tarjeta">
             <span className="hero__tijera" aria-hidden="true"><Scissors size={22} /></span>
-            <p className="etiqueta"><Sparkles size={14} aria-hidden="true" />Hecho a mano en Madrid</p>
+            <p className="etiqueta"><Sparkles size={14} aria-hidden="true" />Vinilo de corte · Diseño personalizado</p>
             <h1 id="titulo-hero">
-              Regalos con <em>tu nombre</em>, tu frase y tu fecha
+              Convierte <em>tu idea</em> en vinilo
             </h1>
             <p className="hero__sub">
-              Elige el producto, escribe tu texto y mira cómo queda antes de pedirlo.
-              Recibo tu pedido por WhatsApp y te confirmo plazo y precio.
+              Escribe tu nombre, tu frase o tu fecha, elige letra y color y mira cómo queda donde tengas en mente ponerlo.
+              Te lo envío cortado y listo para pegar.
             </p>
 
             <Buscador />
 
             <div className="hero__acciones">
-              <Link to="/catalogo" className="boton boton--principal">Ver todos los regalos</Link>
+              <Link to="/catalogo" className="boton boton--principal">Empieza tu diseño</Link>
               <Link to="/trabajos" className="boton boton--secundario">Trabajos reales</Link>
             </div>
 

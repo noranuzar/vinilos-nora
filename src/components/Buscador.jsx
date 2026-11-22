@@ -14,7 +14,7 @@ export default function Buscador({ inicial = '' }) {
 
   return (
     <form role="search" className="buscador" onSubmit={enviar}>
-      <label htmlFor="busqueda" className="sr-only">Buscar regalos</label>
+      <label htmlFor="busqueda" className="sr-only">Buscar ideas</label>
       <input
         id="busqueda"
         type="search"
