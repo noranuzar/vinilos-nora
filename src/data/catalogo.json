@@ -1181,6 +1181,21 @@
       "superficies": [
         "camiseta"
       ]
+    },
+    {
+      "id": "rotulo-taller-mile",
+      "seccion": "negocios",
+      "nombre": "Rótulo de escaparate",
+      "svg": "/img/disenos/rotulo-taller-mile.svg",
+      "colorDibujo": "#2B2420",
+      "colorTexto": "#2B2420",
+      "dosColores": false,
+      "unColor": true,
+      "nota": "Rótulo que corté para el Taller de Costura Mile. Dime el nombre de tu negocio y la medida del cristal.",
+      "queTexto": "nombre del negocio",
+      "superficies": [
+        "escaparate"
+      ]
     }
   ],
   "superficies": [
@@ -1226,6 +1241,17 @@
         "y": 35.6,
         "ancho": 27,
         "alto": 22.5
+      }
+    },
+    {
+      "id": "escaparate",
+      "nombre": "Escaparate",
+      "imagen": "/img/superficies/escaparate.jpg",
+      "zona": {
+        "x": 49.8,
+        "y": 19.5,
+        "ancho": 74,
+        "alto": 9
       }
     }
   ]
