@@ -3,8 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { Menu, X, ShoppingBag } from 'lucide-react'
 import { useCesta } from '../context/CestaContext'
 
-// La cesta está oculta mientras los pedidos se envían por WhatsApp (0.6). Su código se conserva.
-const MOSTRAR_CESTA = false
+import { MOSTRAR_CESTA } from '../lib/ajustes'
 import Logo from './Logo'
 
 const ENLACES = [

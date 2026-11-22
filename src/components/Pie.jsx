@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { CalendarClock, Smartphone, Truck, MessageCircle, Scissors } from 'lucide-react'
 import { useCatalogo } from '../context/CatalogoContext'
 import { enlaceWhatsApp } from '../lib/whatsapp'
+import { MOSTRAR_CESTA } from '../lib/ajustes'
 import Logo from './Logo'
 
 export default function Pie() {
@@ -45,7 +46,7 @@ export default function Pie() {
             <h2>Tienda</h2>
             <ul>
               <li><Link to="/catalogo">Catálogo</Link></li>
-              <li><Link to="/cesta">Mi cesta</Link></li>
+              {MOSTRAR_CESTA && <li><Link to="/cesta">Mi cesta</Link></li>}
             </ul>
           </div>
         </div>
