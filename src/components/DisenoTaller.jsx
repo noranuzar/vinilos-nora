@@ -8,12 +8,15 @@ import { enlaceWhatsApp } from '../lib/whatsapp'
 // Si el diseño tiene «lineas», el cliente puede cambiar el texto: mientras no escriba
 // se ve el trabajo original; en cuanto escribe, se dibuja en directo con una fuente parecida.
 export default function DisenoTaller({ diseno, nombre }) {
-  const { config, superficies } = useCatalogo()
-  const propias = (diseno.superficies || []).map((id) => superficies.find((s) => s.id === id)).filter(Boolean)
-  const lugares = [...propias, ...superficies.filter((s) => !propias.includes(s))]
+  const { config, superficies, colores: inventario } = useCatalogo()
+  // Solo los soportes compatibles de este diseño.
+  const lugares = (diseno.superficies || []).map((id) => superficies.find((s) => s.id === id)).filter(Boolean)
+  const propias = lugares
   const [lugarId, setLugarId] = useState(propias[0]?.id || 'blanco')
   const lugar = lugares.find((s) => s.id === lugarId)
-  const paleta = (config.paletaDisenos || []).filter((c) => !diseno.paleta || diseno.paleta.includes(c.hex))
+  // Colores reales del material del diseño; si el diseño limita colores, solo esos.
+  const paleta = inventario.filter((c) => c.tipo === (diseno.material || 'adhesivo') && (!diseno.colores || diseno.colores.includes(c.id)))
+  const hex = (id) => inventario.find((c) => c.id === id)?.hex
   const variantes = diseno.variantes || []
   const [varianteId, setVarianteId] = useState(variantes[0]?.id)
   const variante = variantes.find((v) => v.id === varianteId)
@@ -49,15 +52,15 @@ export default function DisenoTaller({ diseno, nombre }) {
   const textos = lineas.map((l) => ({ ...l, texto: (valor(l).trim() || l.ejemplo || '') })).filter((l) => l.texto)
 
   const dibujo = dos ? colorDibujo : colorTexto
-  const nombreColor = (hex) => paleta.find((c) => c.hex === hex)?.nombre || hex
+  const nombreColor = (id) => inventario.find((c) => c.id === id)?.nombre || id
   const que = diseno.queTexto || 'nombre'
   const colores = dos
     ? `${(diseno.etiquetaDibujo || 'dibujo').toLowerCase()} ${nombreColor(dibujo)}, ${(diseno.etiquetaTexto || 'nombre y corazones').toLowerCase()} ${nombreColor(colorTexto)}`
     : `todo en ${nombreColor(colorTexto)}`
   const detalle = diseno.sinTexto ? 'el texto tal cual' : lineas.length
-    ? lineas.map((l) => `${l.etiqueta.toLowerCase()} «${valor(l).trim() || (l.ejemplo ? l.ejemplo : 'te lo digo')}»`).join(', ')
+    ? lineas.map((l) => `${l.etiqueta.toLowerCase()} «${valor(l).trim() || 'te lo digo'}»`).join(', ')
     : `el ${que} «${nombre || `(te digo el ${que})`}»`
-  const mensaje = `Hola Nora, quiero el diseño «${diseno.nombre}»${variante ? ` (${variante.nombre.toLowerCase()})` : ''} con ${detalle}. Colores: ${colores}.${lugar ? ` Lo he visto sobre: ${lugar.nombre.toLowerCase()}${medida ? `, unos ${medida}` : ''}.` : ''}`
+  const mensaje = `Hola Nora, quiero el diseño «${diseno.nombre}»${variante ? ` (${variante.nombre.toLowerCase()})` : ''} con ${detalle}. Colores: ${colores}.${lugar ? ` Lo he visto sobre: ${lugar.nombre.toLowerCase()}${medida ? ` (medida aproximada: ${medida})` : ''}.` : ''}`
 
   const contenido = escrito
     ? { children: <TextoVivo lineas={textos} separacion={diseno.separacion || 0} /> }
@@ -66,8 +69,8 @@ export default function DisenoTaller({ diseno, nombre }) {
   const Paleta = ({ valor, alElegir, etiqueta }) => (
     <div className="taller__paleta" role="group" aria-label={etiqueta}>
       {paleta.map((c) => (
-        <button key={c.hex} type="button" className="taller__color" style={{ background: c.hex }}
-          aria-label={c.nombre} title={c.nombre} aria-pressed={valor === c.hex} onClick={() => alElegir(c.hex)} />
+        <button key={c.id} type="button" className="taller__color" style={{ background: c.hex }}
+          aria-label={c.nombre} title={c.nombre} aria-pressed={valor === c.id} onClick={() => alElegir(c.id)} />
       ))}
     </div>
   )
@@ -79,12 +82,12 @@ export default function DisenoTaller({ diseno, nombre }) {
           role="img" aria-label={`${diseno.nombre} sobre ${lugar.nombre.toLowerCase()}, imagen de ejemplo`}>
           <div className="taller__zona" style={{
             left: `${lugar.zona.x - lugar.zona.ancho / 2}%`, top: `${lugar.zona.y - lugar.zona.alto / 2}%`,
-            width: `${lugar.zona.ancho}%`, height: `${lugar.zona.alto}%`, '--oso': dibujo, '--txt': colorTexto,
+            width: `${lugar.zona.ancho}%`, height: `${lugar.zona.alto}%`, '--oso': hex(dibujo), '--txt': hex(colorTexto),
           }} {...contenido} />
           <span className="taller__aviso">Imagen de ejemplo</span>
         </div>
       ) : (
-        <div className="taller__lienzo" style={{ '--oso': dibujo, '--txt': colorTexto }}
+        <div className="taller__lienzo" style={{ '--oso': hex(dibujo), '--txt': hex(colorTexto) }}
           role="img" aria-label={`${diseno.nombre}, diseño de ejemplo`} {...contenido} />
       )}
       <div className="taller__lugares" role="group" aria-label="Ver el diseño sobre">
@@ -131,6 +134,7 @@ export default function DisenoTaller({ diseno, nombre }) {
         )}
         <p className="taller__etiqueta">{dos ? (diseno.etiquetaTexto || 'Nombre y corazones') : 'Color'}</p>
         <Paleta valor={colorTexto} alElegir={setColorTexto} etiqueta={dos ? 'Color del nombre y los corazones' : 'Color del diseño'} />
+        {config.avisoColores && <p className="taller__medida">{config.avisoColores}</p>}
         <a className="boton boton--principal taller__pedir" href={enlaceWhatsApp(config.whatsapp, mensaje)}
           target="_blank" rel="noopener noreferrer">{lineas.length || diseno.sinTexto ? 'Lo quiero así' : `Lo quiero con mi ${que}`}</a>
       </div>

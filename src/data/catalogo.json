@@ -44,40 +44,7 @@
       "textil": 0.6
     },
     "avisoPrueba": "Antes de producir hago una prueba de corte. Si algún texto es demasiado pequeño para cortarse bien, te escribo para ajustarlo antes de empezar.",
-    "paletaDisenos": [
-      {
-        "nombre": "Rosa chicle",
-        "hex": "#E85A8C"
-      },
-      {
-        "nombre": "Azul bebé",
-        "hex": "#3B8FD9"
-      },
-      {
-        "nombre": "Menta",
-        "hex": "#2FA58A"
-      },
-      {
-        "nombre": "Lavanda",
-        "hex": "#8E6CCB"
-      },
-      {
-        "nombre": "Mostaza",
-        "hex": "#D99A12"
-      },
-      {
-        "nombre": "Coral",
-        "hex": "#F06A4A"
-      },
-      {
-        "nombre": "Oro viejo",
-        "hex": "#A88B3D"
-      },
-      {
-        "nombre": "Negro",
-        "hex": "#2B2420"
-      }
-    ]
+    "avisoColores": "Los colores en pantalla son orientativos y pueden variar respecto al material real."
   },
   "ocasiones": [
     {
@@ -261,79 +228,177 @@
       "id": "ad-negro",
       "nombre": "Negro",
       "hex": "#1A1A1A",
-      "tipo": "adhesivo"
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
     },
     {
       "id": "ad-blanco",
       "nombre": "Blanco",
       "hex": "#FFFFFF",
-      "tipo": "adhesivo"
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
     },
     {
-      "id": "ad-oro",
-      "nombre": "Oro",
-      "hex": "#C9A227",
-      "tipo": "adhesivo"
-    },
-    {
-      "id": "ad-plata",
-      "nombre": "Plata",
+      "id": "ad-plateado",
+      "nombre": "Plateado",
       "hex": "#A8A9AD",
-      "tipo": "adhesivo"
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
     },
     {
-      "id": "ad-rosa",
-      "nombre": "Rosa empolvado",
-      "hex": "#E3A9A6",
-      "tipo": "adhesivo"
+      "id": "ad-oro-viejo",
+      "nombre": "Oro viejo",
+      "hex": "#A88B3D",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
     },
     {
-      "id": "ad-azul",
-      "nombre": "Azul marino",
-      "hex": "#1F2F5C",
-      "tipo": "adhesivo"
+      "id": "ad-verde-lima",
+      "nombre": "Verde lima",
+      "hex": "#9ACD32",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-morado",
+      "nombre": "Morado",
+      "hex": "#6A3D9A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-fucsia-chicle",
+      "nombre": "Fucsia chicle",
+      "hex": "#E8458B",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-amarillo",
+      "nombre": "Amarillo",
+      "hex": "#F2C200",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-verde-bosque",
+      "nombre": "Verde bosque",
+      "hex": "#2E5E3A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-rojo-oscuro",
+      "nombre": "Rojo oscuro",
+      "hex": "#9B1B1F",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-naranja",
+      "nombre": "Naranja",
+      "hex": "#F07A1A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "mate"
+    },
+    {
+      "id": "ad-beige",
+      "nombre": "Beige",
+      "hex": "#D9C7A7",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "brillo"
+    },
+    {
+      "id": "ad-gris-oscuro",
+      "nombre": "Gris oscuro",
+      "hex": "#4A4A4A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": "brillo"
+    },
+    {
+      "id": "ad-burdeos",
+      "nombre": "Burdeos",
+      "hex": "#6D1A2A",
+      "hexProvisional": true,
+      "tipo": "adhesivo",
+      "acabado": null
     },
     {
       "id": "tx-negro",
       "nombre": "Negro",
       "hex": "#1A1A1A",
-      "tipo": "textil"
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
       "id": "tx-blanco",
       "nombre": "Blanco",
       "hex": "#FFFFFF",
-      "tipo": "textil"
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-oro",
-      "nombre": "Oro",
-      "hex": "#C9A227",
-      "tipo": "textil"
+      "id": "tx-melocoton",
+      "nombre": "Melocotón",
+      "hex": "#F4B183",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-rosa",
-      "nombre": "Rosa",
-      "hex": "#E8A0B4",
-      "tipo": "textil"
+      "id": "tx-verde-oliva",
+      "nombre": "Verde oliva",
+      "hex": "#708238",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-azul",
-      "nombre": "Azul marino",
-      "hex": "#1F2F5C",
-      "tipo": "textil"
+      "id": "tx-verde-menta",
+      "nombre": "Verde menta",
+      "hex": "#98D7C2",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-rojo",
-      "nombre": "Rojo",
-      "hex": "#B3261E",
-      "tipo": "textil"
+      "id": "tx-lila",
+      "nombre": "Lila",
+      "hex": "#C8A2C8",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
     },
     {
-      "id": "tx-granate",
-      "nombre": "Granate",
-      "hex": "#7A1F2B",
-      "tipo": "textil"
+      "id": "tx-azul-cielo",
+      "nombre": "Azul cielo",
+      "hex": "#8EC5E8",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": "mate"
+    },
+    {
+      "id": "tx-burdeos",
+      "nombre": "Burdeos",
+      "hex": "#6D1A2A",
+      "hexProvisional": true,
+      "tipo": "textil",
+      "acabado": null
     }
   ],
   "adornos": [
@@ -741,13 +806,7 @@
         ]
       },
       "tramosCantidad": null,
-      "colores": [
-        "tx-negro",
-        "tx-oro",
-        "tx-rosa",
-        "tx-azul",
-        "tx-rojo"
-      ],
+      "colores": null,
       "permiteAdorno": true
     },
     {
@@ -799,9 +858,17 @@
       ],
       "colores": [
         "ad-negro",
-        "ad-oro",
-        "ad-rosa",
-        "ad-azul"
+        "ad-oro-viejo",
+        "ad-verde-lima",
+        "ad-morado",
+        "ad-fucsia-chicle",
+        "ad-amarillo",
+        "ad-verde-bosque",
+        "ad-rojo-oscuro",
+        "ad-naranja",
+        "ad-beige",
+        "ad-gris-oscuro",
+        "ad-burdeos"
       ],
       "permiteAdorno": true
     },
@@ -841,9 +908,17 @@
       "tramosCantidad": null,
       "colores": [
         "ad-negro",
-        "ad-oro",
-        "ad-rosa",
-        "ad-azul"
+        "ad-oro-viejo",
+        "ad-verde-lima",
+        "ad-morado",
+        "ad-fucsia-chicle",
+        "ad-amarillo",
+        "ad-verde-bosque",
+        "ad-rojo-oscuro",
+        "ad-naranja",
+        "ad-beige",
+        "ad-gris-oscuro",
+        "ad-burdeos"
       ],
       "permiteAdorno": true
     },
@@ -951,9 +1026,17 @@
       "tramosCantidad": null,
       "colores": [
         "ad-negro",
-        "ad-oro",
-        "ad-rosa",
-        "ad-azul"
+        "ad-oro-viejo",
+        "ad-verde-lima",
+        "ad-morado",
+        "ad-fucsia-chicle",
+        "ad-amarillo",
+        "ad-verde-bosque",
+        "ad-rojo-oscuro",
+        "ad-naranja",
+        "ad-beige",
+        "ad-gris-oscuro",
+        "ad-burdeos"
       ],
       "permiteAdorno": true
     },
@@ -972,7 +1055,7 @@
         "empresas"
       ],
       "imagen": "/img/productos/llavero.jpg",
-      "descripcion": "Llavero de tela con mosquetón y cinta ancha de 4 cm, con nombres y fecha en vinilo textil. Detalle de boda muy pedido.",
+      "descripcion": "Llavero de tela con mosquetón y cinta ancha de 4 cm, con nombres y fecha en vinilo textil. Detalle de boda muy pedido. El color de la cinta depende de la tela disponible; aquí eliges el color del vinilo.",
       "cuidados": "Lavar a mano en frío. No planchar sobre el vinilo.",
       "destacado": true,
       "activo": true,
@@ -1006,13 +1089,7 @@
           "precioUnidad": null
         }
       ],
-      "colores": [
-        "tx-negro",
-        "tx-blanco",
-        "tx-oro",
-        "tx-azul",
-        "tx-granate"
-      ],
+      "colores": null,
       "permiteAdorno": true,
       "imagenPrevia": "/img/productos/llavero-previa.jpg",
       "proporcionPrevia": "2 / 1",
@@ -1127,14 +1204,29 @@
       "seccion": "bebe",
       "nombre": "Osito abrazo",
       "svg": "/img/disenos/osito-abrazo.svg",
-      "colorDibujo": "#E85A8C",
-      "colorTexto": "#E85A8C",
+      "colorDibujo": "ad-fucsia-chicle",
+      "colorTexto": "ad-fucsia-chicle",
       "dosColores": false,
-      "nota": "En la imagen pone «Andrea»: lo corto con el nombre que escribas.",
+      "nota": "En la imagen pone «Andrea»: lo corto con el nombre que escribas. Propuesto en Fucsia chicle, el rosa disponible en vinilo; no es el rosa bebé exacto del original.",
       "queTexto": "nombre",
       "superficies": [
         "pared",
         "cuadro"
+      ],
+      "material": "adhesivo",
+      "colores": [
+        "ad-negro",
+        "ad-oro-viejo",
+        "ad-verde-lima",
+        "ad-morado",
+        "ad-fucsia-chicle",
+        "ad-amarillo",
+        "ad-verde-bosque",
+        "ad-rojo-oscuro",
+        "ad-naranja",
+        "ad-beige",
+        "ad-gris-oscuro",
+        "ad-burdeos"
       ]
     },
     {
@@ -1142,14 +1234,29 @@
       "seccion": "bebe",
       "nombre": "Osito observando",
       "svg": "/img/disenos/osito-asomado.svg",
-      "colorDibujo": "#A88B3D",
-      "colorTexto": "#E85A8C",
+      "colorDibujo": "ad-oro-viejo",
+      "colorTexto": "ad-fucsia-chicle",
       "dosColores": true,
       "nota": "En la imagen pone «Andrea»: lo corto con el nombre que escribas.",
       "queTexto": "nombre",
       "superficies": [
         "pared",
         "cuadro"
+      ],
+      "material": "adhesivo",
+      "colores": [
+        "ad-negro",
+        "ad-oro-viejo",
+        "ad-verde-lima",
+        "ad-morado",
+        "ad-fucsia-chicle",
+        "ad-amarillo",
+        "ad-verde-bosque",
+        "ad-rojo-oscuro",
+        "ad-naranja",
+        "ad-beige",
+        "ad-gris-oscuro",
+        "ad-burdeos"
       ]
     },
     {
@@ -1157,8 +1264,8 @@
       "seccion": "celebraciones",
       "nombre": "Número 50",
       "svg": "/img/disenos/numero-50.svg",
-      "colorDibujo": "#A88B3D",
-      "colorTexto": "#A88B3D",
+      "colorDibujo": "ad-oro-viejo",
+      "colorTexto": "ad-oro-viejo",
       "dosColores": false,
       "unColor": true,
       "nota": "Cortado en el taller para un panel redondo. Lo corto con el número que me digas.",
@@ -1178,6 +1285,21 @@
           "maxLength": 3,
           "soloNumeros": true
         }
+      ],
+      "material": "adhesivo",
+      "colores": [
+        "ad-negro",
+        "ad-oro-viejo",
+        "ad-verde-lima",
+        "ad-morado",
+        "ad-fucsia-chicle",
+        "ad-amarillo",
+        "ad-verde-bosque",
+        "ad-rojo-oscuro",
+        "ad-naranja",
+        "ad-beige",
+        "ad-gris-oscuro",
+        "ad-burdeos"
       ]
     },
     {
@@ -1185,8 +1307,8 @@
       "seccion": "equipos",
       "nombre": "Número de camiseta",
       "svg": "/img/disenos/numero-12.svg",
-      "colorDibujo": "#2B2420",
-      "colorTexto": "#2B2420",
+      "colorDibujo": "tx-negro",
+      "colorTexto": "tx-negro",
       "dosColores": false,
       "unColor": true,
       "nota": "Número de 22 cm para la espalda, como el que corto para los clubes. Si quieres, añade el nombre encima (unos 4 cm).",
@@ -1215,15 +1337,17 @@
           "maxLength": 2,
           "soloNumeros": true
         }
-      ]
+      ],
+      "material": "textil",
+      "colores": null
     },
     {
       "id": "rotulo-taller-mile",
       "seccion": "negocios",
       "nombre": "Rótulo de escaparate",
       "svg": "/img/disenos/rotulo-taller-mile.svg",
-      "colorDibujo": "#2B2420",
-      "colorTexto": "#2B2420",
+      "colorDibujo": "ad-negro",
+      "colorTexto": "ad-negro",
       "dosColores": false,
       "unColor": true,
       "nota": "Rótulo que corté para el Taller de Costura Mile. Escribe el nombre de tu negocio y dime la medida del cristal.",
@@ -1242,15 +1366,17 @@
           "maxLength": 30,
           "deSeccion": true
         }
-      ]
+      ],
+      "material": "adhesivo",
+      "colores": null
     },
     {
       "id": "cartel-boda",
       "seccion": "celebraciones",
       "nombre": "Cartel de bienvenida de boda",
       "svg": "/img/disenos/cartel-boda.svg",
-      "colorDibujo": "#A88B3D",
-      "colorTexto": "#A88B3D",
+      "colorDibujo": "ad-oro-viejo",
+      "colorTexto": "ad-oro-viejo",
       "dosColores": false,
       "unColor": false,
       "etiquetaDibujo": "Anillos",
@@ -1262,10 +1388,6 @@
         "pared"
       ],
       "sinTexto": true,
-      "paleta": [
-        "#A88B3D",
-        "#2B2420"
-      ],
       "variantes": [
         {
           "id": "original",
@@ -1282,6 +1404,11 @@
           "nombre": "Anillos arriba",
           "svg": "/img/disenos/cartel-boda-anillos-arriba.svg"
         }
+      ],
+      "material": "adhesivo",
+      "colores": [
+        "ad-oro-viejo",
+        "ad-negro"
       ]
     }
   ],

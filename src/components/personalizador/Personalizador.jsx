@@ -227,7 +227,7 @@ export default function Personalizador({ producto }) {
           </fieldset>
         )}
 
-        <SelectorColor colores={permitidos} valor={color} onChange={(nombre) => cambiar({ colorNombre: nombre })} />
+        <SelectorColor colores={permitidos} valor={color} onChange={(nombre) => cambiar({ colorNombre: nombre })} aviso={config.avisoColores} />
 
         <SelectorAdorno
           adornos={adornos}

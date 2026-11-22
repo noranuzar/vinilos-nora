@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import { Scissors, Sparkles, MessageCircle, Smartphone, Truck } from 'lucide-react'
+import { MessageCircle, Smartphone, Truck } from 'lucide-react'
 import { useCatalogo } from '../context/CatalogoContext'
 import Buscador from '../components/Buscador'
 import AccesosSeccion from '../components/AccesosSeccion'
@@ -11,40 +10,33 @@ export default function Portada() {
 
   return (
     <>
-      <section className="hero" aria-labelledby="titulo-hero">
+      <section className="hero hero--foto" aria-labelledby="titulo-hero">
         <div className="contenedor">
-          <div className="hero__tarjeta">
-            <span className="hero__tijera" aria-hidden="true"><Scissors size={22} /></span>
-            <p className="etiqueta"><Sparkles size={14} aria-hidden="true" />Vinilo de corte · Diseño personalizado</p>
-            <h1 id="titulo-hero">
-              Convierte <em>tu idea</em> en vinilo
-            </h1>
-            <p className="hero__sub">
-              Escribe tu nombre, tu frase o tu fecha, elige letra y color y mira cómo queda donde tengas en mente ponerlo.
-              Te lo envío cortado y listo para pegar.
-            </p>
-
-            <Buscador />
-
-            <div className="hero__acciones">
-              <Link to="/catalogo" className="boton boton--principal">Empieza tu diseño</Link>
-              <Link to="/trabajos" className="boton boton--secundario">Trabajos reales</Link>
-            </div>
-
-            <ul className="ventajas">
-              <li><MessageCircle size={20} aria-hidden="true" />Pedido por WhatsApp</li>
-              <li><Smartphone size={20} aria-hidden="true" />Pago con {config.pago.join(', ')}</li>
-              <li><Truck size={20} aria-hidden="true" />Recogida en Madrid o envío</li>
-            </ul>
-          </div>
+          <h1 id="titulo-hero">Tú lo imaginas. <em>Yo lo hago vinilo.</em></h1>
+          <p className="hero__sub">Elige un diseño, personalízalo y descubre cómo quedaría.</p>
+          <a href="#secciones" className="boton boton--principal hero__boton"
+            onClick={(e) => { e.preventDefault(); document.getElementById('secciones')?.scrollIntoView({ behavior: 'smooth' }) }}>
+            Empieza a crear
+          </a>
+          <picture>
+            <source type="image/webp" srcSet="/img/portada/taller-480.webp 480w, /img/portada/taller-960.webp 960w" sizes="(min-width: 760px) 560px, 100vw" />
+            <img className="hero__foto" src="/img/portada/taller-960.jpg" width="960" height="1200" fetchPriority="high"
+              alt="Mesa de taller con bobinas de vinilo de colores, herramientas y plantas, con luz natural" />
+          </picture>
+          <ul className="ventajas ventajas--discretas">
+            <li><MessageCircle size={16} aria-hidden="true" />Pedido por WhatsApp</li>
+            <li><Smartphone size={16} aria-hidden="true" />Pago con {config.pago.join(', ')}</li>
+            <li><Truck size={16} aria-hidden="true" />Recogida en Madrid o envío</li>
+          </ul>
         </div>
       </section>
 
-      <section className="seccion" aria-labelledby="titulo-ocasiones">
+      <section className="seccion" id="secciones" aria-labelledby="titulo-ocasiones">
         <div className="contenedor">
           <h2 id="titulo-ocasiones" className="seccion__titulo">¿Qué quieres crear?</h2>
           <p className="seccion__intro">Elige un tema, escribe el nombre y mira cómo queda.</p>
           <AccesosSeccion />
+          <Buscador />
         </div>
       </section>
 
@@ -64,8 +56,8 @@ export default function Portada() {
           <p className="seccion__intro">Sin registros ni pagos en la web.</p>
           <ol className="pasos">
             <li className="paso">
-              <h3>Elige tu regalo</h3>
-              <p>Busca por ocasión o por producto.</p>
+              <h3>Elige un diseño</h3>
+              <p>Busca por sección o por tema.</p>
             </li>
             <li className="paso">
               <h3>Personalízalo</h3>

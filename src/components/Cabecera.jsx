@@ -6,7 +6,6 @@ import Logo from './Logo'
 
 const ENLACES = [
   { a: '/catalogo', texto: 'Ideas para personalizar' },
-  { a: '/trabajos', texto: 'Trabajos reales' },
 ]
 
 export default function Cabecera() {

@@ -45,7 +45,6 @@ export default function Pie() {
             <h2>Tienda</h2>
             <ul>
               <li><Link to="/catalogo">Catálogo</Link></li>
-              <li><Link to="/trabajos">Trabajos reales</Link></li>
               <li><Link to="/cesta">Mi cesta</Link></li>
             </ul>
           </div>
