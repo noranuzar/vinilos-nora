@@ -8,7 +8,7 @@ export default function Portada() {
     <>
       <section className="hero hero--foto" aria-labelledby="titulo-hero">
         <div className="contenedor">
-          <h1 id="titulo-hero">Tú lo imaginas. <em>Yo lo hago vinilo.</em></h1>
+          <h1 id="titulo-hero">Tú lo imaginas. <em>Yo lo hago en vinilo.</em></h1>
           <p className="hero__sub">Elige un diseño, personalízalo y descubre cómo quedaría.</p>
           <a href="#secciones" className="boton boton--principal hero__boton"
             onClick={(e) => { e.preventDefault(); document.getElementById('secciones')?.scrollIntoView({ behavior: 'smooth' }) }}>
