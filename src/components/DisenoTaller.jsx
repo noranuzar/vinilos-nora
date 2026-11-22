@@ -26,6 +26,11 @@ export default function DisenoTaller({ diseno, nombre }) {
   const archivo = variante?.svg || diseno.svg
   const [svg, setSvg] = useState('')
   const [revisando, setRevisando] = useState(false)
+  const raiz = useRef(null)
+  // Nombre editable sobre el propio SVG (ositos): mismo texto, misma fuente y misma geometría que irá al corte.
+  const ne = diseno.nombreEditable?.estado === 'activo' ? diseno.nombreEditable : null
+  const nombreMostrado = ne ? (nombre?.trim() || ne.ejemplo) : null
+  const [reduccion, setReduccion] = useState(1)
   const [dos, setDos] = useState(diseno.dosColores)
   const [colorDibujo, setColorDibujo] = useState(diseno.colorDibujo)
   const [colorTexto, setColorTexto] = useState(diseno.colorTexto)
@@ -37,6 +42,18 @@ export default function DisenoTaller({ diseno, nombre }) {
     fetch(archivo).then((r) => r.text()).then((t) => { if (vivo) setSvg(t) }).catch(() => {})
     return () => { vivo = false }
   }, [archivo])
+
+  useLayoutEffect(() => {
+    if (!ne || !svg) return
+    let vivo = true
+    const pintar = () => {
+      const slot = raiz.current?.querySelector('#slot-nombre')
+      if (vivo && slot) setReduccion(pintarNombre(slot, nombreMostrado, ne))
+    }
+    pintar()
+    document.fonts?.load(`${ne.fuente.peso} 100px "${ne.fuente.familia}"`).then(pintar).catch(() => {})
+    return () => { vivo = false }
+  }, [svg, nombreMostrado, lugarId, ne])
 
   // Medida aproximada: el diseño se ajusta a la zona del soporte (anchoCm × altoCm) sin deformarse.
   const vb = svg.match(/viewBox="([^"]+)"/)?.[1]?.split(/[\s,]+/).map(Number)
@@ -70,9 +87,11 @@ export default function DisenoTaller({ diseno, nombre }) {
     ['Diseño', `${diseno.nombre}${variante ? ` (${variante.nombre.toLowerCase()})` : ''}`],
     [diseno.sinTexto || lineas.length ? 'Texto' : (que === 'nombre' ? 'Nombre' : que), textoPedido],
     ['Colores', colores.charAt(0).toUpperCase() + colores.slice(1)],
+    ne ? ['Tipo de letra', `${ne.fuente.nombre} (oficial provisional)`] : null,
     ['Material', material],
     ['Soporte', lugar ? lugar.nombre : 'Sin soporte (vista sobre fondo blanco)'],
   ]
+  const filasResumen = filas.filter(Boolean)
   const referencia = (diseno.codigo || diseno.id).toUpperCase()
 
   const contenido = escrito
@@ -89,7 +108,7 @@ export default function DisenoTaller({ diseno, nombre }) {
   )
 
   return (
-    <article className="taller">
+    <article className="taller" ref={raiz}>
       {lugar ? (
         <div className="taller__escena" style={{ backgroundImage: `url(${lugar.imagen})` }}
           role="img" aria-label={`${diseno.nombre} sobre ${lugar.nombre.toLowerCase()}, imagen de ejemplo`}>
@@ -121,8 +140,8 @@ export default function DisenoTaller({ diseno, nombre }) {
             </div>
           </>
         )}
-        {diseno.nombreEditable?.estado === 'pendiente-fuente' && nombre?.trim() && nombre.trim() !== diseno.nombreEditable.ejemplo && (
-          <p className="taller__medida">La imagen muestra «{diseno.nombreEditable.ejemplo}» como ejemplo. Tu nombre, «{nombre.trim()}», irá en el pedido y te enviaré una prueba antes de cortar.</p>
+        {ne && reduccion < 0.995 && (
+          <p className="taller__medida">Nombre largo: la letra se ha reducido al {Math.round(reduccion * 100)} % para que quepa en el diseño, sin deformarla. Lo revisaré contigo antes de cortar.</p>
         )}
         {medida && <p className="taller__medida">Medida aproximada en este soporte: <strong>{medida}</strong></p>}
         {lineas.map((l) => (
@@ -153,7 +172,7 @@ export default function DisenoTaller({ diseno, nombre }) {
         {config.avisoColores && <p className="taller__medida">{config.avisoColores}</p>}
         {conContorno && <p className="taller__medida">El contorno gris de la imagen solo sirve para ver el color claro en pantalla; no forma parte del vinilo.</p>}
         {revisando
-          ? <SolicitudWhatsApp referencia={referencia} filas={filas} onEditar={() => setRevisando(false)} />
+          ? <SolicitudWhatsApp referencia={referencia} filas={filasResumen} onEditar={() => setRevisando(false)} />
           : <button type="button" className="boton boton--principal taller__pedir" onClick={() => setRevisando(true)}>Revisar solicitud</button>}
       </div>
     </article>
@@ -202,4 +221,41 @@ function TextoVivo({ lineas, separacion }) {
       ))}
     </svg>
   )
+}
+
+// Escribe el nombre en el hueco #slot-nombre del SVG (dentro de la máscara del texto, así las patas lo tapan).
+// Tamaño: el que hace que el nombre de ejemplo ocupe el espacio original; los nombres más largos se reducen
+// de forma uniforme hasta caber en el ancho original. Devuelve la reducción aplicada (1 = sin reducir).
+function pintarNombre(slot, texto, ne) {
+  const NS = 'http://www.w3.org/2000/svg'
+  const { caja } = ne
+  slot.textContent = ''
+  const t = document.createElementNS(NS, 'text')
+  t.setAttribute('fill', '#fff')
+  t.setAttribute('font-family', `"${ne.fuente.familia}"`)
+  t.setAttribute('font-weight', ne.fuente.peso)
+  // «inicio»: la inicial empieza siempre donde empezaba la del original (p. ej. bajo el brazo del osito).
+  const inicio = ne.alineacion === 'inicio'
+  t.setAttribute('text-anchor', inicio ? 'start' : 'middle')
+  t.setAttribute('x', inicio ? caja.x : caja.x + caja.w / 2)
+  slot.appendChild(t)
+  t.textContent = ne.ejemplo
+  t.setAttribute('font-size', 100)
+  let b = t.getBBox()
+  if (!b.width) return 1
+  const base = ne.apoyo === 'abajo'
+    ? Math.min((100 * caja.w) / b.width, (100 * ne.altoLibre) / b.height)
+    : Math.min((100 * caja.w) / b.width, (100 * caja.h) / b.height)
+  t.textContent = texto
+  t.setAttribute('font-size', base)
+  b = t.getBBox()
+  const tam = b.width > caja.w ? (base * caja.w) / b.width : base
+  t.setAttribute('font-size', tam)
+  t.setAttribute('y', 0)
+  b = t.getBBox()
+  const y = ne.apoyo === 'abajo'
+    ? caja.y + caja.h - (ne.margenInferior || 0) - (b.y + b.height)
+    : caja.y + caja.h / 2 - (b.y + b.height / 2)
+  t.setAttribute('y', y)
+  return tam / base
 }

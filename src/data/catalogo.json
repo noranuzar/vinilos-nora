@@ -1212,7 +1212,7 @@
       "colorDibujo": "ad-fucsia-chicle",
       "colorTexto": "ad-fucsia-chicle",
       "dosColores": false,
-      "nota": "En la imagen pone «Andrea»: lo corto con el nombre que escribas. Propuesto en Fucsia chicle, el rosa disponible en vinilo; no es el rosa bebé exacto del original.",
+      "nota": "Escribe el nombre y míralo en la imagen. Letra Merienda. Propuesto en Fucsia chicle, el rosa disponible en vinilo; no es el rosa bebé exacto del original.",
       "queTexto": "nombre",
       "superficies": [
         "pared",
@@ -1221,9 +1221,24 @@
       "material": "adhesivo",
       "colores": null,
       "nombreEditable": {
-        "estado": "pendiente-fuente",
-        "fuente": null,
-        "ejemplo": "Andrea"
+        "estado": "activo",
+        "ejemplo": "Andrea",
+        "fuente": {
+          "familia": "Merienda Oficial",
+          "nombre": "Merienda",
+          "peso": 700,
+          "archivo": "/fuentes/merienda-latin-700-normal.woff2",
+          "licencia": "OFL 1.1",
+          "estado": "oficial provisional"
+        },
+        "caja": {
+          "x": -212,
+          "y": 357,
+          "w": 1319,
+          "h": 450
+        },
+        "apoyo": "centro",
+        "alineacion": "inicio"
       }
     },
     {
@@ -1234,7 +1249,7 @@
       "colorDibujo": "ad-oro-viejo",
       "colorTexto": "ad-fucsia-chicle",
       "dosColores": true,
-      "nota": "En la imagen pone «Andrea»: lo corto con el nombre que escribas.",
+      "nota": "Escribe el nombre y míralo en la imagen. Letra Merienda.",
       "queTexto": "nombre",
       "superficies": [
         "pared",
@@ -1243,9 +1258,25 @@
       "material": "adhesivo",
       "colores": null,
       "nombreEditable": {
-        "estado": "pendiente-fuente",
-        "fuente": null,
-        "ejemplo": "Andrea"
+        "estado": "activo",
+        "ejemplo": "Andrea",
+        "fuente": {
+          "familia": "Merienda Oficial",
+          "nombre": "Merienda",
+          "peso": 700,
+          "archivo": "/fuentes/merienda-latin-700-normal.woff2",
+          "licencia": "OFL 1.1",
+          "estado": "oficial provisional"
+        },
+        "caja": {
+          "x": -538,
+          "y": 283,
+          "w": 1667,
+          "h": 472
+        },
+        "apoyo": "abajo",
+        "altoLibre": 320,
+        "margenInferior": 8
       }
     },
     {

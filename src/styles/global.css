@@ -675,3 +675,5 @@ img { max-width: 100%; display: block; }
 .solicitud textarea { width: 100%; }
 /* Solo pantalla: contorno suave para colores claros sobre fondos claros */
 .taller__contorno svg { filter: drop-shadow(0 0 0.6px rgba(43,36,32,.75)) drop-shadow(0 0 1.2px rgba(43,36,32,.35)); }
+/* Fuente oficial provisional del nombre de los ositos (Merienda, OFL 1.1). Autoalojada: misma fuente en web y corte. */
+@font-face { font-family: 'Merienda Oficial'; font-weight: 700; font-style: normal; font-display: swap; src: url('/fuentes/merienda-latin-700-normal.woff2') format('woff2'); }
