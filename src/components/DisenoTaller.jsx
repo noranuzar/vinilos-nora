@@ -21,11 +21,12 @@ export default function DisenoTaller({ diseno, nombre }) {
 
   const dibujo = dos ? colorDibujo : colorTexto
   const nombreColor = (hex) => paleta.find((c) => c.hex === hex)?.nombre || hex
-  const texto = nombre || '(escribiré el nombre)'
+  const que = diseno.queTexto || 'nombre'
+  const texto = nombre || `(te digo el ${que})`
   const colores = dos
     ? `dibujo ${nombreColor(dibujo)}, nombre y corazones ${nombreColor(colorTexto)}`
     : `todo en ${nombreColor(colorTexto)}`
-  const mensaje = `Hola Nora, quiero el diseño «${diseno.nombre}» con el nombre «${texto}». Colores: ${colores}.`
+  const mensaje = `Hola Nora, quiero el diseño «${diseno.nombre}» con el ${que} «${texto}». Colores: ${colores}.`
 
   const Paleta = ({ valor, alElegir, etiqueta }) => (
     <div className="taller__paleta" role="group" aria-label={etiqueta}>
@@ -39,15 +40,17 @@ export default function DisenoTaller({ diseno, nombre }) {
   return (
     <article className="taller">
       <div className="taller__lienzo" style={{ '--oso': dibujo, '--txt': colorTexto }}
-        role="img" aria-label={`${diseno.nombre}, ejemplo con el nombre Andrea`}
+        role="img" aria-label={`${diseno.nombre}, diseño de ejemplo`}
         dangerouslySetInnerHTML={{ __html: svg }} />
       <div className="taller__cuerpo">
         <h3 className="taller__titulo">{diseno.nombre} <span className="etiqueta-real">Hecho en el taller</span></h3>
-        <p className="taller__nota">En la imagen pone «Andrea»: lo corto con el nombre que escribas.</p>
-        <div className="taller__modo" role="group" aria-label="Número de colores">
-          <button type="button" aria-pressed={dos} onClick={() => setDos(true)}>Dos colores</button>
-          <button type="button" aria-pressed={!dos} onClick={() => setDos(false)}>Un color</button>
-        </div>
+        {diseno.nota && <p className="taller__nota">{diseno.nota}</p>}
+        {!diseno.unColor && (
+          <div className="taller__modo" role="group" aria-label="Número de colores">
+            <button type="button" aria-pressed={dos} onClick={() => setDos(true)}>Dos colores</button>
+            <button type="button" aria-pressed={!dos} onClick={() => setDos(false)}>Un color</button>
+          </div>
+        )}
         {dos && (
           <>
             <p className="taller__etiqueta">Dibujo</p>
@@ -57,7 +60,7 @@ export default function DisenoTaller({ diseno, nombre }) {
         <p className="taller__etiqueta">{dos ? 'Nombre y corazones' : 'Color'}</p>
         <Paleta valor={colorTexto} alElegir={setColorTexto} etiqueta={dos ? 'Color del nombre y los corazones' : 'Color del diseño'} />
         <a className="boton boton--principal taller__pedir" href={enlaceWhatsApp(config.whatsapp, mensaje)}
-          target="_blank" rel="noopener noreferrer">Lo quiero con mi nombre</a>
+          target="_blank" rel="noopener noreferrer">Lo quiero con mi {que}</a>
       </div>
     </article>
   )

@@ -1129,7 +1129,9 @@
       "svg": "/img/disenos/osito-abrazo.svg",
       "colorDibujo": "#E85A8C",
       "colorTexto": "#E85A8C",
-      "dosColores": false
+      "dosColores": false,
+      "nota": "En la imagen pone «Andrea»: lo corto con el nombre que escribas.",
+      "queTexto": "nombre"
     },
     {
       "id": "osito-asomado",
@@ -1138,7 +1140,21 @@
       "svg": "/img/disenos/osito-asomado.svg",
       "colorDibujo": "#A88B3D",
       "colorTexto": "#E85A8C",
-      "dosColores": true
+      "dosColores": true,
+      "nota": "En la imagen pone «Andrea»: lo corto con el nombre que escribas.",
+      "queTexto": "nombre"
+    },
+    {
+      "id": "numero-50",
+      "seccion": "celebraciones",
+      "nombre": "Número 50",
+      "svg": "/img/disenos/numero-50.svg",
+      "colorDibujo": "#A88B3D",
+      "colorTexto": "#A88B3D",
+      "dosColores": false,
+      "unColor": true,
+      "nota": "Cortado en el taller para un panel redondo. Lo corto con el número que me digas.",
+      "queTexto": "número"
     }
   ]
 }
