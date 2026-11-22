@@ -13,7 +13,11 @@ export default function DisenoTaller({ diseno, nombre }) {
   const lugares = [...propias, ...superficies.filter((s) => !propias.includes(s))]
   const [lugarId, setLugarId] = useState(propias[0]?.id || 'blanco')
   const lugar = lugares.find((s) => s.id === lugarId)
-  const paleta = config.paletaDisenos || []
+  const paleta = (config.paletaDisenos || []).filter((c) => !diseno.paleta || diseno.paleta.includes(c.hex))
+  const variantes = diseno.variantes || []
+  const [varianteId, setVarianteId] = useState(variantes[0]?.id)
+  const variante = variantes.find((v) => v.id === varianteId)
+  const archivo = variante?.svg || diseno.svg
   const [svg, setSvg] = useState('')
   const [dos, setDos] = useState(diseno.dosColores)
   const [colorDibujo, setColorDibujo] = useState(diseno.colorDibujo)
@@ -23,9 +27,21 @@ export default function DisenoTaller({ diseno, nombre }) {
 
   useEffect(() => {
     let vivo = true
-    fetch(diseno.svg).then((r) => r.text()).then((t) => { if (vivo) setSvg(t) }).catch(() => {})
+    fetch(archivo).then((r) => r.text()).then((t) => { if (vivo) setSvg(t) }).catch(() => {})
     return () => { vivo = false }
-  }, [diseno.svg])
+  }, [archivo])
+
+  // Medida aproximada: el diseño se ajusta a la zona del soporte (anchoCm × altoCm) sin deformarse.
+  const vb = svg.match(/viewBox="([^"]+)"/)?.[1]?.split(/[\s,]+/).map(Number)
+  const z = lugar?.zona
+  let medida = null
+  if (!escritoVivo() && vb && z?.anchoCm && z?.altoCm) {
+    const prop = vb[2] / vb[3]
+    const ancho = Math.min(z.anchoCm, z.altoCm * prop)
+    medida = `${Math.round(ancho)} × ${Math.round(ancho / prop)} cm`
+  }
+
+  function escritoVivo() { return (diseno.lineas || []).some((l) => { const v = (propio[l.campo] ?? (l.deSeccion ? nombre : '')).trim(); return v && v !== l.ejemplo }) }
 
   // Valor de cada línea: lo que escribe el cliente aquí o, si la línea lo permite, el nombre de la sección.
   const valor = (l) => propio[l.campo] ?? (l.deSeccion ? nombre : '')
@@ -41,7 +57,7 @@ export default function DisenoTaller({ diseno, nombre }) {
   const detalle = diseno.sinTexto ? 'el texto tal cual' : lineas.length
     ? lineas.map((l) => `${l.etiqueta.toLowerCase()} «${valor(l).trim() || (l.ejemplo ? l.ejemplo : 'te lo digo')}»`).join(', ')
     : `el ${que} «${nombre || `(te digo el ${que})`}»`
-  const mensaje = `Hola Nora, quiero el diseño «${diseno.nombre}» con ${detalle}. Colores: ${colores}.${lugar ? ` Lo he visto sobre: ${lugar.nombre.toLowerCase()}.` : ''}`
+  const mensaje = `Hola Nora, quiero el diseño «${diseno.nombre}»${variante ? ` (${variante.nombre.toLowerCase()})` : ''} con ${detalle}. Colores: ${colores}.${lugar ? ` Lo he visto sobre: ${lugar.nombre.toLowerCase()}${medida ? `, unos ${medida}` : ''}.` : ''}`
 
   const contenido = escrito
     ? { children: <TextoVivo lineas={textos} separacion={diseno.separacion || 0} /> }
@@ -79,6 +95,17 @@ export default function DisenoTaller({ diseno, nombre }) {
       <div className="taller__cuerpo">
         <h3 className="taller__titulo">{diseno.nombre} <span className="etiqueta-real">Hecho en el taller</span></h3>
         {diseno.nota && <p className="taller__nota">{diseno.nota}</p>}
+        {variantes.length > 1 && (
+          <>
+            <p className="taller__etiqueta">Composición</p>
+            <div className="taller__modo taller__modo--varias" role="group" aria-label="Composición">
+              {variantes.map((v) => (
+                <button key={v.id} type="button" aria-pressed={varianteId === v.id} onClick={() => setVarianteId(v.id)}>{v.nombre}</button>
+              ))}
+            </div>
+          </>
+        )}
+        {medida && <p className="taller__medida">Medida aproximada en este soporte: <strong>{medida}</strong></p>}
         {lineas.map((l) => (
           <div className="campo taller__campo" key={l.campo}>
             <label htmlFor={`${diseno.id}-${l.campo}`}>{l.etiqueta}</label>

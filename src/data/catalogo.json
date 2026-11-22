@@ -1250,17 +1250,39 @@
       "nombre": "Cartel de bienvenida de boda",
       "svg": "/img/disenos/cartel-boda.svg",
       "colorDibujo": "#A88B3D",
-      "colorTexto": "#2B2420",
+      "colorTexto": "#A88B3D",
       "dosColores": false,
       "unColor": false,
       "etiquetaDibujo": "Anillos",
       "etiquetaTexto": "Texto",
-      "nota": "Cartel que corté para una boda. Elige un color o dos: anillos en un color y texto en otro.",
+      "nota": "Cartel que corté para una boda. En oro viejo o negro, en uno o dos colores. Elige cómo colocarlo.",
       "superficies": [
+        "caballete",
         "panel",
         "pared"
       ],
-      "sinTexto": true
+      "sinTexto": true,
+      "paleta": [
+        "#A88B3D",
+        "#2B2420"
+      ],
+      "variantes": [
+        {
+          "id": "original",
+          "nombre": "Como lo corté",
+          "svg": "/img/disenos/cartel-boda.svg"
+        },
+        {
+          "id": "centrado",
+          "nombre": "Centrado",
+          "svg": "/img/disenos/cartel-boda-centrado.svg"
+        },
+        {
+          "id": "anillos-arriba",
+          "nombre": "Anillos arriba",
+          "svg": "/img/disenos/cartel-boda-anillos-arriba.svg"
+        }
+      ]
     }
   ],
   "superficies": [
@@ -1294,7 +1316,9 @@
         "x": 50,
         "y": 51,
         "ancho": 61,
-        "alto": 33
+        "alto": 33,
+        "anchoCm": 104,
+        "altoCm": 70
       }
     },
     {
@@ -1305,7 +1329,9 @@
         "x": 49.7,
         "y": 35.6,
         "ancho": 27,
-        "alto": 22.5
+        "alto": 22.5,
+        "anchoCm": 21.7,
+        "altoCm": 22.6
       }
     },
     {
@@ -1317,6 +1343,19 @@
         "y": 19.5,
         "ancho": 74,
         "alto": 9
+      }
+    },
+    {
+      "id": "caballete",
+      "nombre": "Caballete",
+      "imagen": "/img/superficies/caballete.jpg",
+      "zona": {
+        "x": 50.1,
+        "y": 38.2,
+        "ancho": 74,
+        "alto": 38,
+        "anchoCm": 72,
+        "altoCm": 46
       }
     }
   ]
