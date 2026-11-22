@@ -614,3 +614,4 @@ img { max-width: 100%; display: block; }
 .taller__lugares { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px 4px; }
 .taller__lugares button { min-height: 40px; padding: 0 14px; border-radius: 999px; border: 2px solid var(--borde); background: var(--blanco); font: inherit; font-size: 0.875rem; font-weight: 700; color: var(--tinta); cursor: pointer; }
 .taller__lugares button[aria-pressed='true'] { background: var(--tinta); border-color: var(--tinta); color: var(--crema); }
+.taller__campo { margin: 0 0 10px; }

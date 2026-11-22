@@ -1165,6 +1165,19 @@
       "queTexto": "número",
       "superficies": [
         "panel"
+      ],
+      "lineas": [
+        {
+          "campo": "numero",
+          "etiqueta": "Número",
+          "ejemplo": "50",
+          "alto": 70,
+          "fuente": "'Playfair Display', serif",
+          "peso": 700,
+          "estilo": "italic",
+          "maxLength": 3,
+          "soloNumeros": true
+        }
       ]
     },
     {
@@ -1176,10 +1189,32 @@
       "colorTexto": "#2B2420",
       "dosColores": false,
       "unColor": true,
-      "nota": "Número de 22 cm para la espalda, como el que corto para los clubes. Dime el número y el nombre.",
+      "nota": "Número de 22 cm para la espalda, como el que corto para los clubes. Si quieres, añade el nombre encima (unos 4 cm).",
       "queTexto": "número",
       "superficies": [
         "camiseta"
+      ],
+      "separacion": 3,
+      "lineas": [
+        {
+          "campo": "nombre",
+          "etiqueta": "Nombre",
+          "ejemplo": "",
+          "alto": 4,
+          "fuente": "'Bebas Neue', sans-serif",
+          "mayus": true,
+          "maxLength": 14,
+          "deSeccion": true
+        },
+        {
+          "campo": "numero",
+          "etiqueta": "Número",
+          "ejemplo": "12",
+          "alto": 22,
+          "fuente": "'Bebas Neue', sans-serif",
+          "maxLength": 2,
+          "soloNumeros": true
+        }
       ]
     },
     {
@@ -1191,10 +1226,22 @@
       "colorTexto": "#2B2420",
       "dosColores": false,
       "unColor": true,
-      "nota": "Rótulo que corté para el Taller de Costura Mile. Dime el nombre de tu negocio y la medida del cristal.",
+      "nota": "Rótulo que corté para el Taller de Costura Mile. Escribe el nombre de tu negocio y dime la medida del cristal.",
       "queTexto": "nombre del negocio",
       "superficies": [
         "escaparate"
+      ],
+      "lineas": [
+        {
+          "campo": "texto",
+          "etiqueta": "Nombre del negocio",
+          "ejemplo": "Taller de Costura Mile",
+          "alto": 10,
+          "fuente": "'Fraunces', serif",
+          "peso": 900,
+          "maxLength": 30,
+          "deSeccion": true
+        }
       ]
     }
   ],
