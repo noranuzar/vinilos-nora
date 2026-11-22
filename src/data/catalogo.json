@@ -1208,7 +1208,7 @@
       "id": "osito-abrazo",
       "seccion": "bebe",
       "nombre": "Osito abrazo",
-      "svg": "/img/disenos/osito-abrazo.svg",
+      "svg": "/img/disenos/osito-abrazo-capas.svg",
       "colorDibujo": "ad-fucsia-chicle",
       "colorTexto": "ad-fucsia-chicle",
       "dosColores": false,
@@ -1232,13 +1232,18 @@
         "ad-beige",
         "ad-gris-oscuro",
         "ad-burdeos"
-      ]
+      ],
+      "nombreEditable": {
+        "estado": "pendiente-fuente",
+        "fuente": null,
+        "ejemplo": "Andrea"
+      }
     },
     {
       "id": "osito-asomado",
       "seccion": "bebe",
       "nombre": "Osito observando",
-      "svg": "/img/disenos/osito-asomado.svg",
+      "svg": "/img/disenos/osito-asomado-capas.svg",
       "colorDibujo": "ad-oro-viejo",
       "colorTexto": "ad-fucsia-chicle",
       "dosColores": true,
@@ -1262,7 +1267,12 @@
         "ad-beige",
         "ad-gris-oscuro",
         "ad-burdeos"
-      ]
+      ],
+      "nombreEditable": {
+        "estado": "pendiente-fuente",
+        "fuente": null,
+        "ejemplo": "Andrea"
+      }
     },
     {
       "id": "numero-50",

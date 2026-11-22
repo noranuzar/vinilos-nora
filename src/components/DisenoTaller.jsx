@@ -108,6 +108,9 @@ export default function DisenoTaller({ diseno, nombre }) {
             </div>
           </>
         )}
+        {diseno.nombreEditable?.estado === 'pendiente-fuente' && nombre?.trim() && nombre.trim() !== diseno.nombreEditable.ejemplo && (
+          <p className="taller__medida">La imagen muestra «{diseno.nombreEditable.ejemplo}» como ejemplo. Tu nombre, «{nombre.trim()}», irá en el pedido y te enviaré una prueba antes de cortar.</p>
+        )}
         {medida && <p className="taller__medida">Medida aproximada en este soporte: <strong>{medida}</strong></p>}
         {lineas.map((l) => (
           <div className="campo taller__campo" key={l.campo}>
