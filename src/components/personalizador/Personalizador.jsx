@@ -2,7 +2,7 @@
 // compartido entre objetos; tamaño, cantidad y fecha son propios de este objeto.
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Minus, Plus, Check, ShoppingBag, TriangleAlert, Scissors } from 'lucide-react'
+import { Minus, Plus, Check, ShoppingBag, TriangleAlert, Scissors, Info } from 'lucide-react'
 import { useCatalogo } from '../../context/CatalogoContext'
 import { useCesta } from '../../context/CestaContext'
 import { useDiseno } from '../../context/DisenoContext'
@@ -360,6 +360,13 @@ export default function Personalizador({ producto }) {
           <p className="aviso aviso--info">
             <Scissors size={18} aria-hidden="true" />
             <span>{config.avisoPrueba}</span>
+          </p>
+        )}
+
+        {config.avisoColocacion && (
+          <p className="aviso aviso--info">
+            <Info size={18} aria-hidden="true" />
+            <span>{config.avisoColocacion}</span>
           </p>
         )}
 

@@ -5,7 +5,7 @@ import { useCesta } from '../context/CestaContext'
 import Logo from './Logo'
 
 const ENLACES = [
-  { a: '/catalogo', texto: 'Catálogo' },
+  { a: '/catalogo', texto: 'Ideas para personalizar' },
   { a: '/trabajos', texto: 'Trabajos reales' },
 ]
 

@@ -1,7 +1,7 @@
 {
   "config": {
     "nombreTienda": "Vinilos Nora",
-    "lema": "Regalos personalizados con vinilo, hechos a mano en Madrid",
+    "lema": "Vinilo de corte personalizado, hecho a mano en Madrid",
     "whatsapp": "34697154442",
     "diasMinimosEntrega": 5,
     "moneda": "EUR",
@@ -23,7 +23,8 @@
       "Bizum"
     ],
     "avisoDerechos": "No personalizamos logos de marcas ni personajes con derechos de autor.",
-    "avisoImagenes": "Imagen orientativa. El producto real puede variar ligeramente.",
+    "avisoImagenes": "Imagen de ejemplo. Tú pones el objeto; yo te envío el vinilo listo para aplicar.",
+    "avisoColocacion": "Recibirás tu vinilo con instrucciones. La colocación corre de tu cuenta.",
     "posicionesAdorno": [
       {
         "id": "arriba",
@@ -403,7 +404,9 @@
   "productos": [
     {
       "id": "tote-algodon",
-      "nombre": "Bolsa tote de algodón",
+      "codigo": "RT-T-01",
+      "grupo": "RT",
+      "nombre": "Vinilo para bolsa tote",
       "tipo": "textil",
       "ocasiones": [
         "profesores",
@@ -450,7 +453,9 @@
     },
     {
       "id": "body-bebe",
-      "nombre": "Body de bebé",
+      "codigo": "RT-T-02",
+      "grupo": "RT",
+      "nombre": "Vinilo para body de bebé",
       "tipo": "textil",
       "ocasiones": [
         "bautizos-comuniones",
@@ -499,7 +504,9 @@
     },
     {
       "id": "vaso-reutilizable",
-      "nombre": "Vaso reutilizable con pajita",
+      "codigo": "RG-A-02",
+      "grupo": "RG",
+      "nombre": "Vinilo para vaso reutilizable",
       "tipo": "adhesivo",
       "ocasiones": [
         "profesores",
@@ -552,7 +559,9 @@
     },
     {
       "id": "taza-ceramica",
-      "nombre": "Taza de cerámica",
+      "codigo": "RG-A-01",
+      "grupo": "RG",
+      "nombre": "Vinilo para taza",
       "tipo": "adhesivo",
       "ocasiones": [
         "dia-madre-padre",
@@ -592,7 +601,9 @@
     },
     {
       "id": "tarro-invitados",
-      "nombre": "Tarro de cristal para invitados",
+      "codigo": "RG-A-03",
+      "grupo": "RG",
+      "nombre": "Vinilo para tarro de cristal",
       "tipo": "adhesivo",
       "ocasiones": [
         "bodas",
@@ -638,7 +649,9 @@
     },
     {
       "id": "cuaderno-agenda",
-      "nombre": "Cuaderno o agenda personalizada",
+      "codigo": "RG-A-04",
+      "grupo": "RG",
+      "nombre": "Vinilo para cuaderno o agenda",
       "tipo": "adhesivo",
       "ocasiones": [
         "profesores",
@@ -697,6 +710,8 @@
     },
     {
       "id": "llavero-tela",
+      "codigo": "RT-T-03",
+      "grupo": "RT",
       "nombre": "Llavero de tela",
       "tipo": "textil",
       "ocasiones": [
@@ -756,6 +771,8 @@
     },
     {
       "id": "tu-objeto",
+      "codigo": "PO-X-01",
+      "grupo": "PO",
       "nombre": "Personaliza tu propio objeto",
       "tipo": null,
       "tiposPermitidos": [
