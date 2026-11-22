@@ -370,6 +370,30 @@
   ],
   "plantillas": [
     {
+      "id": "numero-grande",
+      "ocasion": "cumpleanos",
+      "nombre": "Número grande",
+      "campos": [
+        {
+          "id": "numero",
+          "etiqueta": "Número",
+          "ejemplo": "50",
+          "max": 3,
+          "numerico": true
+        }
+      ],
+      "lineas": [
+        "{numero}"
+      ],
+      "fuente": "abril",
+      "adorno": null,
+      "posicionAdorno": "arriba",
+      "productoSugerido": "tu-objeto",
+      "tamLineas": [
+        1
+      ]
+    },
+    {
       "id": "cumple-feliz",
       "ocasion": "cumpleanos",
       "nombre": "Feliz cumple",
